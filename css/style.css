@@ -37,10 +37,22 @@ body {
     height: 70px;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo .logo-img {
+    height: 45px;
+    width: auto;
+}
+
 .nav-logo h1 {
     color: #2563eb;
     font-size: 1.8rem;
     font-weight: 700;
+    margin: 0;
 }
 
 .nav-menu {

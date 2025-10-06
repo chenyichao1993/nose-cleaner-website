@@ -31,6 +31,10 @@
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-logo">
+                    <img src="images/responsive/logo_150x45.webp" 
+                         alt="Nose Cleaner Logo" 
+                         class="logo-img"
+                         loading="eager">
                     <h1>Nose Cleaner</h1>
                 </div>
                 <div class="nav-menu" id="nav-menu">
@@ -61,7 +65,15 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="images/nasal-irrigator-hero.jpg" alt="Best nasal irrigators and nose cleaners" loading="lazy">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="images/webp/hero-nose-cleaner.webp">
+                    <source media="(min-width: 768px)" srcset="images/responsive/hero-nose-cleaner_tablet.webp">
+                    <img src="images/responsive/hero-nose-cleaner_mobile.webp" 
+                         alt="Best nasal irrigators and nose cleaners" 
+                         loading="lazy"
+                         width="800" 
+                         height="600">
+                </picture>
             </div>
         </div>
     </section>
@@ -72,19 +84,40 @@
             <h2>What Are You Looking For?</h2>
             <div class="nav-cards">
                 <div class="nav-card">
-                    <img src="images/baby-nose-cleaner.jpg" alt="Baby nose cleaner" loading="lazy">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="images/webp/baby-nose-cleaner.webp">
+                        <img src="images/responsive/baby-nose-cleaner_mobile.webp" 
+                             alt="Baby nose cleaner" 
+                             loading="lazy"
+                             width="400" 
+                             height="300">
+                    </picture>
                     <h3>Baby Nose Cleaners</h3>
                     <p>Safe and gentle nose cleaners and nasal aspirators for infants and toddlers</p>
                     <a href="baby.html" class="card-link">Learn More →</a>
                 </div>
                 <div class="nav-card">
-                    <img src="images/adult-nasal-irrigator.jpg" alt="Adult nose cleaner" loading="lazy">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="images/webp/adult-nose-cleaner.webp">
+                        <img src="images/responsive/adult-nose-cleaner_mobile.webp" 
+                             alt="Adult nose cleaner" 
+                             loading="lazy"
+                             width="400" 
+                             height="300">
+                    </picture>
                     <h3>Adult Nose Cleaners</h3>
                     <p>Professional-grade nasal irrigators and nose cleaner devices for adults</p>
                     <a href="reviews.html" class="card-link">View Reviews →</a>
                 </div>
                 <div class="nav-card">
-                    <img src="images/allergy-relief.jpg" alt="Allergy relief nose cleaner" loading="lazy">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="images/webp/allergy-relief.webp">
+                        <img src="images/responsive/allergy-relief_mobile.webp" 
+                             alt="Allergy relief nose cleaner" 
+                             loading="lazy"
+                             width="400" 
+                             height="300">
+                    </picture>
                     <h3>Allergy Relief</h3>
                     <p>Nose cleaners and nasal irrigators specifically designed for allergy sufferers</p>
                     <a href="reviews.html#allergy" class="card-link">Find Products →</a>
