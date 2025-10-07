@@ -116,9 +116,10 @@ body {
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
-    padding: 6rem 0;
+    padding: 0;
     position: relative;
-    min-height: 80vh;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .hero::before {
@@ -128,23 +129,23 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0.2) 70%, transparent 100%);
     z-index: 1;
 }
 
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 5%;
     position: relative;
     z-index: 2;
     display: flex;
     align-items: center;
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 650px;
     width: 100%;
 }
 
@@ -631,7 +632,8 @@ body {
 
     .hero {
         background-position: center center;
-        min-height: 60vh;
+        min-height: 80vh;
+        padding: 0;
     }
     
     .hero::before {
@@ -640,7 +642,8 @@ body {
     
     .hero-container {
         text-align: center;
-        min-height: 60vh;
+        min-height: 80vh;
+        padding: 0 3%;
     }
     
     .hero-content {
