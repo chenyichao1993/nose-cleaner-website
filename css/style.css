@@ -114,7 +114,7 @@ body {
 .hero {
     background-image: url('../images/webp/hero-nose-cleaner.webp');
     background-size: cover;
-    background-position: center right;
+    background-position: 60% center;
     background-repeat: no-repeat;
     padding: 0;
     position: relative;
