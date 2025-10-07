@@ -242,11 +242,17 @@ body {
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
 }
 
 .nav-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-card img {
@@ -273,10 +279,16 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 6px;
+    margin-top: 0.5rem;
 }
 
-.card-link:hover {
+.nav-card:hover .card-link {
     color: #1d4ed8;
+    background: rgba(29, 78, 216, 0.15);
 }
 
 /* Featured Products */
