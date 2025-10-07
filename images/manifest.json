@@ -2,21 +2,21 @@
   "images": {
     "hero": {
       "desktop": "images/webp/hero-nose-cleaner.webp",
-      "tablet": "images/responsive/hero-nose-cleaner_tablet.webp",
-      "mobile": "images/responsive/hero-nose-cleaner_mobile.webp"
+      "tablet": "images/responsive/hero-nose-cleaner_1200x900.webp",
+      "mobile": "images/responsive/hero-nose-cleaner_800x600.webp"
     },
     "products": {
       "baby": {
         "desktop": "images/webp/baby-nose-cleaner.webp",
-        "mobile": "images/responsive/baby-nose-cleaner_mobile.webp"
+        "mobile": "images/responsive/baby-nose-cleaner_400x300.webp"
       },
       "adult": {
         "desktop": "images/webp/adult-nose-cleaner.webp",
-        "mobile": "images/responsive/adult-nose-cleaner_mobile.webp"
+        "mobile": "images/responsive/adult-nose-cleaner_400x300.webp"
       },
       "allergy": {
         "desktop": "images/webp/allergy-relief.webp",
-        "mobile": "images/responsive/allergy-relief_mobile.webp"
+        "mobile": "images/responsive/allergy-relief_400x300.webp"
       }
     },
     "devices": {

@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://nosecleaner.online/sitemap.xml
+Sitemap: https://nosecleaner.online/sitemap-images.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all image formats
+Allow: /images/
+Allow: /*.webp
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /.specstory/

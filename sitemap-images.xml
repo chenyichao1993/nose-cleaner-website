@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage images -->
+    <url>
+        <loc>https://nosecleaner.online/</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/hero-nose-cleaner.webp</image:loc>
+            <image:title>Best Nose Cleaners 2025 - Professional Nasal Irrigators</image:title>
+            <image:caption>Professional nose cleaner devices for nasal irrigation and sinus cleaning</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/logo.webp</image:loc>
+            <image:title>Nose Cleaner Logo</image:title>
+            <image:caption>Nose Cleaner brand logo for nasal care products</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/adult-nose-cleaner.webp</image:loc>
+            <image:title>Adult Nose Cleaner Device</image:title>
+            <image:caption>Professional nasal irrigator for adult sinus cleaning</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/allergy-relief.webp</image:loc>
+            <image:title>Allergy Relief with Nose Cleaner</image:title>
+            <image:caption>Nasal irrigation for allergy relief and sinus health</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Reviews page images -->
+    <url>
+        <loc>https://nosecleaner.online/reviews.html</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/navage-device.webp</image:loc>
+            <image:title>Naväge Nasal Irrigator Device</image:title>
+            <image:caption>Naväge electronic nasal irrigator for sinus cleaning</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/neilmed-device.webp</image:loc>
+            <image:title>NeilMed Sinus Rinse Bottle</image:title>
+            <image:caption>NeilMed manual sinus rinse bottle for nasal irrigation</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/comparison-chart.webp</image:loc>
+            <image:title>Nose Cleaner Comparison Chart</image:title>
+            <image:caption>Detailed comparison chart of Naväge vs NeilMed nose cleaners</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Guide page images -->
+    <url>
+        <loc>https://nosecleaner.online/guide.html</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/safety-guide.webp</image:loc>
+            <image:title>Nose Cleaner Safety Guide</image:title>
+            <image:caption>Safe usage instructions for nasal irrigation devices</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Baby care page images -->
+    <url>
+        <loc>https://nosecleaner.online/baby.html</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/baby-nose-cleaner.webp</image:loc>
+            <image:title>Baby Nose Cleaner Device</image:title>
+            <image:caption>Gentle nasal aspirator for baby nose cleaning</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/baby-aspirator.webp</image:loc>
+            <image:title>Baby Nasal Aspirator</image:title>
+            <image:caption>Safe and gentle nasal aspirator for infants</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- About page images -->
+    <url>
+        <loc>https://nosecleaner.online/about.html</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/webp/about-team.webp</image:loc>
+            <image:title>Nose Cleaner Team</image:title>
+            <image:caption>Expert team dedicated to nasal health and nose cleaner reviews</image:caption>
+        </image:image>
+    </url>
+    
+</urlset>
