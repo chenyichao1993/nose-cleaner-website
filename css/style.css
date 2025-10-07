@@ -112,18 +112,40 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    padding: 4rem 0;
+    background-image: url('../images/webp/hero-nose-cleaner.webp');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    padding: 6rem 0;
+    position: relative;
+    min-height: 80vh;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 100%);
+    z-index: 1;
 }
 
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
     align-items: center;
+    min-height: 80vh;
+}
+
+.hero-content {
+    max-width: 600px;
+    width: 100%;
 }
 
 .hero-title {
@@ -147,12 +169,6 @@ body {
     flex-wrap: wrap;
 }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
 
 /* Button Styles */
 .btn {
@@ -613,9 +629,22 @@ body {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    .hero {
+        background-position: center center;
+        min-height: 60vh;
+    }
+    
+    .hero::before {
+        background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0.6) 100%);
+    }
+    
     .hero-container {
-        grid-template-columns: 1fr;
         text-align: center;
+        min-height: 60vh;
+    }
+    
+    .hero-content {
+        max-width: 100%;
     }
 
     .hero-title {
