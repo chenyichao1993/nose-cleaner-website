@@ -1255,8 +1255,9 @@ body {
 
 .review-header {
     position: relative;
-    height: 200px;
+    height: 300px;
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .review-image {
