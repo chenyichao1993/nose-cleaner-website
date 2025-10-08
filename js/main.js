@@ -146,41 +146,81 @@ function initializeCostCalculator() {
 
     if (calculateButton && resultDiv) {
         calculateButton.addEventListener('click', function() {
-            const deviceCost = parseFloat(calculatorContainer.querySelector('#device-cost').value) || 0;
-            const saltPodCost = parseFloat(calculatorContainer.querySelector('#salt-pod-cost').value) || 0;
             const usesPerDay = parseFloat(calculatorContainer.querySelector('#uses-per-day').value) || 0;
             const saltPodsPerUse = parseFloat(calculatorContainer.querySelector('#salt-pods-per-use').value) || 1;
 
-            if (deviceCost > 0 && saltPodCost > 0 && usesPerDay > 0) {
-                const dailyCost = (saltPodCost * saltPodsPerUse * usesPerDay);
-                const monthlyCost = dailyCost * 30;
-                const yearlyCost = dailyCost * 365;
-                const costPerUse = saltPodCost * saltPodsPerUse;
+            if (usesPerDay > 0) {
+                // Fixed costs per salt pod
+                const navagePodCost = 0.50; // $0.50 per Naväge salt pod
+                const neilmedPodCost = 0.15; // $0.15 per NeilMed saline packet
+                
+                // Calculate costs
+                const navageCostPerUse = navagePodCost * saltPodsPerUse;
+                const neilmedCostPerUse = neilmedPodCost * saltPodsPerUse;
+                
+                const navageDailyCost = navageCostPerUse * usesPerDay;
+                const neilmedDailyCost = neilmedCostPerUse * usesPerDay;
+                
+                const navageMonthlyCost = navageDailyCost * 30;
+                const neilmedMonthlyCost = neilmedDailyCost * 30;
+                
+                const navageYearlyCost = navageDailyCost * 365;
+                const neilmedYearlyCost = neilmedDailyCost * 365;
+                
+                const yearlySavings = navageYearlyCost - neilmedYearlyCost;
+                const recommendedProduct = yearlySavings > 0 ? 'NeilMed' : 'Naväge';
+                const savingsAmount = Math.abs(yearlySavings);
 
                 resultDiv.innerHTML = `
-                    <h4>Cost Breakdown:</h4>
-                    <div class="cost-breakdown">
-                        <div class="cost-item">
-                            <span>Cost per use:</span>
-                            <span>$${costPerUse.toFixed(2)}</span>
+                    <div class="cost-comparison">
+                        <h4>Annual Cost Comparison</h4>
+                        <div class="comparison-cards">
+                            <div class="cost-card navage-card">
+                                <h5>Naväge</h5>
+                                <div class="cost-breakdown">
+                                    <div class="cost-item">
+                                        <span>Per use:</span>
+                                        <span>$${navageCostPerUse.toFixed(2)}</span>
+                                    </div>
+                                    <div class="cost-item">
+                                        <span>Monthly:</span>
+                                        <span>$${navageMonthlyCost.toFixed(2)}</span>
+                                    </div>
+                                    <div class="cost-item total">
+                                        <span>Yearly:</span>
+                                        <span>$${navageYearlyCost.toFixed(2)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cost-card neilmed-card">
+                                <h5>NeilMed</h5>
+                                <div class="cost-breakdown">
+                                    <div class="cost-item">
+                                        <span>Per use:</span>
+                                        <span>$${neilmedCostPerUse.toFixed(2)}</span>
+                                    </div>
+                                    <div class="cost-item">
+                                        <span>Monthly:</span>
+                                        <span>$${neilmedMonthlyCost.toFixed(2)}</span>
+                                    </div>
+                                    <div class="cost-item total">
+                                        <span>Yearly:</span>
+                                        <span>$${neilmedYearlyCost.toFixed(2)}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="cost-item">
-                            <span>Daily cost:</span>
-                            <span>$${dailyCost.toFixed(2)}</span>
-                        </div>
-                        <div class="cost-item">
-                            <span>Monthly cost:</span>
-                            <span>$${monthlyCost.toFixed(2)}</span>
-                        </div>
-                        <div class="cost-item">
-                            <span>Yearly cost:</span>
-                            <span>$${yearlyCost.toFixed(2)}</span>
+                        
+                        <div class="recommendation">
+                            <h5>💡 Recommendation</h5>
+                            <p><strong>${recommendedProduct}</strong> would save you <strong>$${savingsAmount.toFixed(2)}</strong> per year with your usage pattern.</p>
                         </div>
                     </div>
                 `;
                 resultDiv.style.display = 'block';
             } else {
-                resultDiv.innerHTML = '<p>Please fill in all required fields.</p>';
+                resultDiv.innerHTML = '<p class="error-message">Please enter a valid number of uses per day.</p>';
                 resultDiv.style.display = 'block';
             }
         });
@@ -294,25 +334,107 @@ style.textContent = `
         line-height: 1;
     }
     
-    .cost-breakdown {
+    .cost-comparison {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: #f8fafc;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .comparison-cards {
         display: grid;
-        gap: 0.5rem;
-        margin-top: 1rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .cost-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border: 2px solid transparent;
+    }
+    
+    .navage-card {
+        border-color: #3b82f6;
+    }
+    
+    .neilmed-card {
+        border-color: #10b981;
+    }
+    
+    .cost-card h5 {
+        margin: 0 0 1rem 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    
+    .navage-card h5 {
+        color: #3b82f6;
+    }
+    
+    .neilmed-card h5 {
+        color: #10b981;
+    }
+    
+    .cost-breakdown {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
     }
     
     .cost-item {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 0.5rem 0;
-        border-bottom: 1px solid #e5e7eb;
+        border-bottom: 1px solid #f1f5f9;
     }
     
-    .cost-item:last-child {
+    .cost-item.total {
         border-bottom: none;
         font-weight: bold;
-        background: #f3f4f6;
+        background: #f8fafc;
         padding: 0.75rem;
-        border-radius: 4px;
+        border-radius: 6px;
+        margin-top: 0.5rem;
+    }
+    
+    .recommendation {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    
+    .recommendation h5 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.1rem;
+    }
+    
+    .recommendation p {
+        margin: 0;
+        font-size: 1rem;
+    }
+    
+    .error-message {
+        color: #ef4444;
+        text-align: center;
+        padding: 1rem;
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+    }
+    
+    @media (max-width: 768px) {
+        .comparison-cards {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
     }
     
     .search-results {
