@@ -328,9 +328,11 @@
             <div class="newsletter-content">
                 <h2>Stay Updated on Nasal Health</h2>
                 <p>Get the latest reviews, safety tips, and exclusive deals delivered to your inbox.</p>
-                <form class="newsletter-form" id="newsletter-form">
+                <form class="newsletter-form" id="newsletter-form" novalidate>
                     <input type="email" placeholder="Enter your email address" required 
-                           title="Please enter a valid email address">
+                           title="Please enter a valid email address"
+                           oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                           oninput="this.setCustomValidity('')">
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
                 <p class="newsletter-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
@@ -362,7 +364,6 @@
                     <h4>Important</h4>
                     <ul>
                         <li><a href="about.html#disclaimer">Medical Disclaimer</a></li>
-                        <li><a href="about.html#affiliate">Affiliate Disclosure</a></li>
                         <li><a href="about.html#privacy">Privacy Policy</a></li>
                         <li><a href="about.html#contact">Contact Us</a></li>
                     </ul>

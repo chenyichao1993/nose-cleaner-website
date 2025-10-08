@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
             
             if (email) {
                 // Simple email validation
@@ -45,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     showNotification('Please enter a valid email address.', 'error');
                 }
+            } else {
+                showNotification('Please enter your email address.', 'error');
             }
         });
     }
