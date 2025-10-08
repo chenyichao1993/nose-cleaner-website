@@ -86,9 +86,9 @@
     <url>
         <loc>https://nosecleaner.online/about.html</loc>
         <image:image>
-            <image:loc>https://nosecleaner.online/images/webp/about-team.webp</image:loc>
+            <image:loc>https://nosecleaner.online/images/responsive/about-team_800x600.webp</image:loc>
             <image:title>Nose Cleaner Team</image:title>
-            <image:caption>Expert team dedicated to nasal health and nose cleaner reviews</image:caption>
+            <image:caption>Professional team working on nasal health research and product testing</image:caption>
         </image:image>
     </url>
     

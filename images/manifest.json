@@ -28,6 +28,9 @@
       "safety": "images/webp/safety-guide.webp",
       "comparison": "images/webp/comparison-chart.webp"
     },
+    "about": {
+      "team": "images/webp/about-team.webp"
+    },
     "logo": {
       "desktop": "images/responsive/logo_200x200.webp",
       "tablet": "images/responsive/logo_150x150.webp",

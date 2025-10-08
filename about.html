@@ -19,6 +19,23 @@
     <link rel="icon" type="image/png" sizes="256x256" href="favicon-256.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nosecleaner.online/about.html">
+    <meta property="og:title" content="About Nose Cleaner - Your Trusted Nose Cleaner Resource">
+    <meta property="og:description" content="Learn about Nose Cleaner, your trusted source for nose cleaner reviews, nasal health products, and safety guides. Our mission is to help you breathe easier.">
+    <meta property="og:image" content="https://nosecleaner.online/images/responsive/about-team_800x600.webp">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="Nose Cleaner team working on nasal health research and product testing">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nosecleaner.online/about.html">
+    <meta property="twitter:title" content="About Nose Cleaner - Your Trusted Nose Cleaner Resource">
+    <meta property="twitter:description" content="Learn about Nose Cleaner, your trusted source for nose cleaner reviews, nasal health products, and safety guides. Our mission is to help you breathe easier.">
+    <meta property="twitter:image" content="https://nosecleaner.online/images/responsive/about-team_800x600.webp">
+    
     <!-- Schema.org structured data for Organization -->
     <script type="application/ld+json">
     {
@@ -37,6 +54,19 @@
             "https://twitter.com/nasalcarepro",
             "https://facebook.com/nasalcarepro"
         ]
+    }
+    </script>
+    
+    <!-- ImageObject Schema for main image -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "url": "https://nosecleaner.online/images/responsive/about-team_800x600.webp",
+        "width": 800,
+        "height": 600,
+        "caption": "Nose Cleaner team working on nasal health research and product testing",
+        "description": "Professional team dedicated to testing and reviewing nasal health products"
     }
     </script>
 </head>
@@ -101,7 +131,15 @@
                     <p>We understand that nasal health affects your daily life, from sleep quality to overall comfort. That's why we've dedicated ourselves to testing, reviewing, and researching the best nose cleaner devices and nasal irrigators on the market, always with your safety and well-being in mind.</p>
                 </div>
                 <div class="mission-image">
-                    <img src="images/webp/about-team.webp" alt="Nose Cleaner Mission" loading="lazy">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="images/responsive/about-team_400x300.webp">
+                        <source media="(max-width: 900px)" srcset="images/responsive/about-team_600x450.webp">
+                        <img src="images/responsive/about-team_800x600.webp" 
+                             alt="Nose Cleaner team working on nasal health research and product testing" 
+                             loading="lazy"
+                             width="600" 
+                             height="450">
+                    </picture>
                 </div>
             </div>
         </div>
