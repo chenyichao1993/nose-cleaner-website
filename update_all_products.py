@@ -33,9 +33,9 @@ class MultiProductUpdater:
             },
             'navage': {
                 'name': 'Naväge Nasal Care Starter Kit',
-                'url': 'https://www.amazon.com/Naväge-Nasal-Care-Starter-Kit/dp/B000FOBMOC',
+                'url': 'https://www.amazon.com/Navage-Nasal-Irrigation-Basic-Bundle/dp/B01787L6QY',
                 'html_selector': 'navage',
-                'asin': 'B000FOBMOC'
+                'asin': 'B01787L6QY'
             }
         }
         
@@ -257,6 +257,41 @@ class MultiProductUpdater:
                 
                 elif product_key == 'nosefrida':
                     # 更新NoseFrida产品信息
+                    if product_data['price']:
+                        content = re.sub(
+                            r'<span class="price">\$[\d,]+\.?\d*</span>',
+                            f'<span class="price">{product_data["price"]}</span>',
+                            content
+                        )
+                    
+                    if product_data['original_price']:
+                        content = re.sub(
+                            r'<span class="original-price">\$[\d,]+\.?\d*</span>',
+                            f'<span class="original-price">{product_data["original_price"]}</span>',
+                            content
+                        )
+                    
+                    if product_data['discount']:
+                        content = re.sub(
+                            r'<span class="discount">-\d+%</span>',
+                            f'<span class="discount">{product_data["discount"]}</span>',
+                            content
+                        )
+                    
+                    if product_data['rating'] and product_data['review_count']:
+                        rating_pattern = r'<span class="rating-text">\d+\.?\d*/5 \([\d,]+ reviews\)</span>'
+                        replacement = f'<span class="rating-text">{product_data["rating"]}/5 ({product_data["review_count"]} reviews)</span>'
+                        content = re.sub(rating_pattern, replacement, content)
+                    
+                    if product_data['stars']:
+                        content = re.sub(
+                            r'<span class="stars">[★☆]+</span>',
+                            f'<span class="stars">{product_data["stars"]}</span>',
+                            content
+                        )
+                
+                elif product_key == 'navage':
+                    # 更新Naväge产品信息
                     if product_data['price']:
                         content = re.sub(
                             r'<span class="price">\$[\d,]+\.?\d*</span>',
