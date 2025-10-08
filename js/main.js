@@ -471,3 +471,93 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Affiliate Conversion Tracking
+function initializeAffiliateTracking() {
+    // Track Amazon affiliate link clicks
+    const amazonLinks = document.querySelectorAll('a[href*="amazon.com"]');
+    
+    amazonLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const productName = getProductNameFromLink(this);
+            const productPrice = getProductPriceFromContext(this);
+            
+            // Google Analytics 4 Event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'affiliate_click', {
+                    'event_category': 'Affiliate',
+                    'event_label': productName,
+                    'value': productPrice,
+                    'currency': 'USD',
+                    'custom_parameter_1': 'Amazon'
+                });
+            }
+            
+            // Google Tag Manager DataLayer
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'affiliate_click',
+                    'product_name': productName,
+                    'product_price': productPrice,
+                    'affiliate_platform': 'Amazon',
+                    'currency': 'USD'
+                });
+            }
+            
+            // Microsoft Clarity Event
+            if (typeof clarity !== 'undefined') {
+                clarity('event', 'affiliate_click');
+            }
+            
+            console.log('Affiliate click tracked:', productName, productPrice);
+        });
+    });
+}
+
+// Helper function to extract product name from Amazon link
+function getProductNameFromLink(link) {
+    const href = link.href;
+    const url = new URL(href);
+    const pathname = url.pathname;
+    
+    // Extract product name from URL path
+    if (pathname.includes('/dp/')) {
+        const dpIndex = pathname.indexOf('/dp/');
+        const productId = pathname.substring(dpIndex + 4, dpIndex + 14);
+        
+        // Map product IDs to product names
+        const productMap = {
+            'B01787L6QY': 'Naväge Nasal Care Starter Kit',
+            'B000RDZFZ0': 'NeilMed Sinus Rinse Kit',
+            'B00RP0GHBO': 'NoseFrida Baby Saline Kit',
+            'B01N093BYV': 'Frida Baby Aspirator',
+            'B08CMWHD3B': 'GROWNSY Electric Nasal Aspirator',
+            'B0BSVG8RGR': 'Dr. Talbot\'s Silicone Nasal Aspirator'
+        };
+        
+        return productMap[productId] || 'Unknown Product';
+    }
+    
+    return 'Amazon Product';
+}
+
+// Helper function to extract product price from context
+function getProductPriceFromContext(link) {
+    // Try to find price in the same product card
+    const productCard = link.closest('.product-card, .review-card, .team-member');
+    if (productCard) {
+        const priceElement = productCard.querySelector('.current-price, .price');
+        if (priceElement) {
+            const priceText = priceElement.textContent;
+            const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+            return price || 0;
+        }
+    }
+    
+    return 0;
+}
+
+// Initialize affiliate tracking when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeAffiliateTracking();
+});
