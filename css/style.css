@@ -390,7 +390,24 @@ body {
 .price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #2563eb;
+}
+
+.original-price {
+    font-size: 1rem;
+    color: #94a3b8;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+.discount {
+    font-size: 0.875rem;
+    color: #dc2626;
+    font-weight: 600;
+    background: #fef2f2;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 0.5rem;
 }
 
 .cost-per-use {
