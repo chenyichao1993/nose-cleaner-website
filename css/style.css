@@ -59,6 +59,7 @@ body {
     justify-content: center;
     font-size: 32px;
     border: 2px solid #e0f2fe;
+    margin: 0 auto;
 }
 
 .nav-logo h1 {
@@ -1920,9 +1921,11 @@ body {
 }
 
 .mission-image img {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    object-fit: contain;
 }
 
 .what-we-do {
@@ -1986,6 +1989,9 @@ body {
 
 .member-image {
     margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .member-image img {
