@@ -22,18 +22,16 @@
     "devices": {
       "navage": "images/webp/navage-device.webp",
       "neilmed": "images/webp/neilmed-device.webp",
-      "baby_aspirator": "images/webp/baby-aspirator.webp",
-      "dr_talbots": "images/webp/dr-talbots-aspirator.webp",
-      "growsy_electric": "images/webp/growsy-electric-aspirator.webp"
+      "baby_aspirator": "images/webp/baby-aspirator.webp"
     },
     "guides": {
       "safety": "images/webp/safety-guide.webp",
       "comparison": "images/webp/comparison-chart.webp"
     },
     "logo": {
-      "desktop": "images/responsive/logo_200x60.webp",
-      "tablet": "images/responsive/logo_150x45.webp",
-      "mobile": "images/responsive/logo_100x30.webp"
+      "desktop": "images/responsive/logo_200x200.webp",
+      "tablet": "images/responsive/logo_150x150.webp",
+      "mobile": "images/responsive/logo_100x100.webp"
     }
   }
 }
