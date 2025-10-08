@@ -23,7 +23,8 @@
       "navage": "images/webp/navage-device.webp",
       "neilmed": "images/webp/neilmed-device.webp",
       "baby_aspirator": "images/webp/baby-aspirator.webp",
-      "dr_talbots": "images/webp/dr-talbots-aspirator.webp"
+      "dr_talbots": "images/webp/dr-talbots-aspirator.webp",
+      "growsy_electric": "images/webp/growsy-electric-aspirator.webp"
     },
     "guides": {
       "safety": "images/webp/safety-guide.webp",
