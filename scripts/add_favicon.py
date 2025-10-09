@@ -11,13 +11,13 @@ from pathlib import Path
 
 # Favicon代码模板
 FAVICON_CODE = '''    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="favicon-128.png">
-    <link rel="icon" type="image/png" sizes="256x256" href="favicon-256.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/favicons/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="assets/favicons/favicon-128.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicons/favicon-256.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">'''
 
 def check_favicon_exists(html_content):

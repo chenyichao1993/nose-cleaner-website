@@ -28,7 +28,7 @@ jobs:
         
     - name: Run price update
       run: |
-        python update_all_products.py
+        python scripts/update_all_products.py
         
     - name: Commit and push changes
       run: |
