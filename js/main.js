@@ -101,25 +101,26 @@ function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-message">${message}</span>
-            <button class="notification-close">&times;</button>
-        </div>
+        <button class="notification-close">&times;</button>
+        <div class="notification-message">${message}</div>
     `;
 
     // Add styles
     notification.style.cssText = `
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
         color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding: 1.5rem 2rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         z-index: 10000;
-        max-width: 400px;
-        animation: slideIn 0.3s ease-out;
+        max-width: 500px;
+        min-width: 300px;
+        text-align: center;
+        animation: fadeInScale 0.3s ease-out;
     `;
 
     // Add to page
@@ -320,21 +321,50 @@ style.textContent = `
         }
     }
     
-    .notification-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
+    @keyframes fadeInScale {
+        from {
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+    }
+    
+    .notification {
+        position: relative;
     }
     
     .notification-close {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
         background: none;
         border: none;
         color: white;
         font-size: 1.5rem;
         cursor: pointer;
         padding: 0;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.2s;
+        opacity: 0.8;
         line-height: 1;
+    }
+    
+    .notification-close:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        opacity: 1;
+    }
+    
+    .notification-message {
+        padding-right: 2.5rem;
+        line-height: 1.5;
     }
     
     .cost-comparison {
