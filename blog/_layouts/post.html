@@ -1,0 +1,171 @@
+---
+layout: default
+---
+
+<article class="blog-post">
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    {% if page.categories %}
+                    <li><a href="/blog/category/{{ page.categories[0] | downcase | replace: ' ', '-' }}/">{{ page.categories[0] }}</a></li>
+                    {% endif %}
+                    <li aria-current="page">{{ page.title }}</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Post Header -->
+    <header class="post-header">
+        <div class="container">
+            <div class="post-meta">
+                <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+                <span class="post-author">By {{ page.author | default: site.author.name }}</span>
+                <span class="post-read-time">{{ content | reading_time }} min read</span>
+            </div>
+            <h1 class="post-title">{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="post-excerpt">{{ page.description }}</p>
+            {% endif %}
+            
+            <!-- Post Categories and Tags -->
+            <div class="post-taxonomy">
+                {% if page.categories %}
+                <div class="post-categories">
+                    <span class="taxonomy-label">Categories:</span>
+                    {% for category in page.categories %}
+                    <a href="/blog/category/{{ category | downcase | replace: ' ', '-' }}/" class="taxonomy-link">{{ category }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                {% if page.tags %}
+                <div class="post-tags">
+                    <span class="taxonomy-label">Tags:</span>
+                    {% for tag in page.tags %}
+                    <a href="/blog/tag/{{ tag | downcase | replace: ' ', '-' }}/" class="taxonomy-link">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Image -->
+    {% if page.image %}
+    <div class="post-featured-image">
+        <div class="container">
+            <img src="{{ page.image }}" alt="{{ page.title }}" loading="eager">
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Post Content -->
+    <div class="post-content">
+        <div class="container">
+            <div class="post-body">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Footer -->
+    <footer class="post-footer">
+        <div class="container">
+            <!-- Author Bio -->
+            <div class="author-bio">
+                <div class="author-avatar">
+                    <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}">
+                </div>
+                <div class="author-info">
+                    <h3>{{ site.author.name }}</h3>
+                    <p>{{ site.author.bio }}</p>
+                </div>
+            </div>
+
+            <!-- Share Buttons -->
+            {% if page.share %}
+            <div class="post-share">
+                <h4>Share this article:</h4>
+                <div class="share-buttons">
+                    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}" 
+                       target="_blank" rel="noopener" class="share-button twitter">
+                        <span>Twitter</span>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
+                       target="_blank" rel="noopener" class="share-button facebook">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" 
+                       target="_blank" rel="noopener" class="share-button linkedin">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:?subject={{ page.title | url_encode }}&body=Check out this article: {{ site.url }}{{ page.url }}" 
+                       class="share-button email">
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Related Posts -->
+            {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.categories contains page.categories[0]" | limit: 3 %}
+            {% if related_posts.size > 0 %}
+            <div class="related-posts">
+                <h3>Related Articles</h3>
+                <div class="related-posts-grid">
+                    {% for post in related_posts %}
+                    <article class="related-post">
+                        {% if post.image %}
+                        <div class="related-post-image">
+                            <a href="{{ post.url }}">
+                                <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+                            </a>
+                        </div>
+                        {% endif %}
+                        <div class="related-post-content">
+                            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+                            <p>{{ post.description | truncate: 120 }}</p>
+                            <span class="related-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </footer>
+</article>
+
+<!-- Table of Contents (if enabled) -->
+{% if page.toc %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const headings = document.querySelectorAll('.post-body h2, .post-body h3, .post-body h4');
+    if (headings.length > 3) {
+        const toc = document.createElement('div');
+        toc.className = 'table-of-contents';
+        toc.innerHTML = '<h3>Table of Contents</h3><ul></ul>';
+        
+        const tocList = toc.querySelector('ul');
+        
+        headings.forEach((heading, index) => {
+            const id = 'heading-' + index;
+            heading.id = id;
+            
+            const li = document.createElement('li');
+            li.className = 'toc-' + heading.tagName.toLowerCase();
+            li.innerHTML = '<a href="#' + id + '">' + heading.textContent + '</a>';
+            tocList.appendChild(li);
+        });
+        
+        const postBody = document.querySelector('.post-body');
+        postBody.insertBefore(toc, postBody.firstChild);
+    }
+});
+</script>
+{% endif %}

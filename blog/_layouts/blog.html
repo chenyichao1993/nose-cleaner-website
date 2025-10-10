@@ -1,0 +1,184 @@
+---
+layout: default
+---
+
+<div class="blog-page">
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="container">
+            <h1>Nose Cleaner Blog</h1>
+            <p class="blog-description">Expert guides, tips, and reviews for nasal health and nose cleaners. Learn about baby nasal care, adult nasal irrigation, and product comparisons.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <div class="blog-content">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Main Content -->
+                <main class="blog-main">
+                    <!-- Featured Post -->
+                    {% assign featured_post = site.posts.first %}
+                    {% if featured_post %}
+                    <article class="featured-post">
+                        <div class="featured-post-image">
+                            <a href="{{ featured_post.url }}">
+                                {% if featured_post.image %}
+                                <img src="{{ featured_post.image }}" alt="{{ featured_post.title }}" loading="eager">
+                                {% else %}
+                                <img src="/images/webp/og-cover.webp" alt="{{ featured_post.title }}" loading="eager">
+                                {% endif %}
+                            </a>
+                            <div class="featured-badge">Featured</div>
+                        </div>
+                        <div class="featured-post-content">
+                            <div class="post-meta">
+                                <span class="post-date">{{ featured_post.date | date: "%B %d, %Y" }}</span>
+                                <span class="post-author">By {{ featured_post.author | default: site.author.name }}</span>
+                                {% if featured_post.categories %}
+                                <span class="post-category">{{ featured_post.categories[0] }}</span>
+                                {% endif %}
+                            </div>
+                            <h2><a href="{{ featured_post.url }}">{{ featured_post.title }}</a></h2>
+                            <p>{{ featured_post.description | default: featured_post.excerpt | truncate: 200 }}</p>
+                            <a href="{{ featured_post.url }}" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                    {% endif %}
+
+                    <!-- Blog Posts Grid -->
+                    <div class="blog-posts">
+                        <h2>Latest Articles</h2>
+                        <div class="posts-grid">
+                            {% for post in site.posts offset: 1 limit: 6 %}
+                            <article class="blog-post-card">
+                                <div class="post-card-image">
+                                    <a href="{{ post.url }}">
+                                        {% if post.image %}
+                                        <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+                                        {% else %}
+                                        <img src="/images/webp/og-cover.webp" alt="{{ post.title }}" loading="lazy">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <div class="post-meta">
+                                        <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                                        {% if post.categories %}
+                                        <span class="post-category">{{ post.categories[0] }}</span>
+                                        {% endif %}
+                                    </div>
+                                    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                                    <p>{{ post.description | default: post.excerpt | truncate: 120 }}</p>
+                                    <a href="{{ post.url }}" class="read-more">Read More →</a>
+                                </div>
+                            </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Load More Button -->
+                    {% if site.posts.size > 7 %}
+                    <div class="load-more-section">
+                        <button class="btn btn-secondary" id="load-more-posts">Load More Articles</button>
+                    </div>
+                    {% endif %}
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul class="category-list">
+                            {% for category in site.categories %}
+                            <li>
+                                <a href="/blog/category/{{ category[0] | downcase | replace: ' ', '-' }}/">
+                                    {{ category[0] }}
+                                    <span class="category-count">({{ category[1].size }})</span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts -->
+                    <div class="sidebar-widget">
+                        <h3>Recent Posts</h3>
+                        <ul class="recent-posts-list">
+                            {% for post in site.posts limit: 5 %}
+                            <li>
+                                <a href="{{ post.url }}">{{ post.title }}</a>
+                                <span class="post-date">{{ post.date | date: "%b %d" }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Popular Tags -->
+                    <div class="sidebar-widget">
+                        <h3>Popular Tags</h3>
+                        <div class="tag-cloud">
+                            {% for tag in site.tags limit: 10 %}
+                            <a href="/blog/tag/{{ tag[0] | downcase | replace: ' ', '-' }}/" class="tag-link">
+                                {{ tag[0] }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Signup -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Stay Updated</h3>
+                        <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
+                        <form class="newsletter-form" id="blog-newsletter-form" novalidate>
+                            <input type="email" placeholder="Enter your email" required 
+                                   title="Please enter a valid email address"
+                                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                                   oninput="this.setCustomValidity('')">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                        <p class="newsletter-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Load more posts functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreBtn = document.getElementById('load-more-posts');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // This would typically load more posts via AJAX
+            // For now, we'll just hide the button
+            this.style.display = 'none';
+        });
+    }
+
+    // Newsletter form handling
+    const newsletterForm = document.getElementById('blog-newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Show success message
+            const successMsg = document.createElement('p');
+            successMsg.className = 'newsletter-success';
+            successMsg.textContent = 'Thank you for subscribing!';
+            this.appendChild(successMsg);
+            
+            // Reset form
+            this.reset();
+            
+            // Remove success message after 3 seconds
+            setTimeout(() => {
+                successMsg.remove();
+            }, 3000);
+        });
+    }
+});
+</script>

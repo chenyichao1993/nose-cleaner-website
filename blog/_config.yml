@@ -1,0 +1,99 @@
+# Jekyll Configuration for Nose Cleaner Blog
+
+# Site Settings
+title: "Nose Cleaner Blog"
+description: "Expert guides, tips, and reviews for nasal health and nose cleaners. Learn about baby nasal care, adult nasal irrigation, and product comparisons."
+url: "https://nosecleaner.online"
+baseurl: "/blog"
+
+# Author
+author:
+  name: "Nose Cleaner Team"
+  email: "motionjoy93@gmail.com"
+  bio: "Your trusted source for nasal health products and expert guidance."
+  avatar: "/images/webp/logo.webp"
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+timezone: America/New_York
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Nose Cleaner Team"
+      comments: true
+      share: true
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO Settings
+seo:
+  type: "Blog"
+  locale: "en_US"
+  name: "Nose Cleaner Blog"
+  description: "Expert guides, tips, and reviews for nasal health and nose cleaners"
+  url: "https://nosecleaner.online/blog"
+  image: "https://nosecleaner.online/images/webp/og-cover.webp"
+  twitter:
+    username: "@nosecleaner"
+  facebook:
+    app_id: "123456789"
+  logo: "https://nosecleaner.online/images/webp/logo.webp"
+
+# Social Links
+social:
+  twitter: "https://twitter.com/nosecleaner"
+  facebook: "https://facebook.com/nosecleaner"
+  instagram: "https://instagram.com/nosecleaner"
+  youtube: "https://youtube.com/nosecleaner"
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Reviews"
+    url: "/reviews"
+  - title: "Guide"
+    url: "/guide"
+  - title: "Baby Care"
+    url: "/baby"
+  - title: "About"
+    url: "/about"
+
+# Categories
+categories:
+  - "Baby Care"
+  - "Adult Care"
+  - "Product Reviews"
+  - "Safety Tips"
+  - "How-to Guides"
+  - "Seasonal Care"
+
+# Tags
+tags:
+  - "baby nose cleaner"
+  - "nasal irrigation"
+  - "nasal aspirator"
+  - "safety tips"
+  - "product comparison"
+  - "allergy relief"
+  - "cold and flu"
+  - "nasal health"
