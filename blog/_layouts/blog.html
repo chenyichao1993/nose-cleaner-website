@@ -17,6 +17,12 @@ layout: default
             <div class="blog-layout">
                 <!-- Main Content -->
                 <main class="blog-main">
+                    <!-- Page Content -->
+                    {% if content %}
+                    <div class="page-content">
+                        {{ content }}
+                    </div>
+                    {% endif %}
                     <!-- Featured Post -->
                     {% assign featured_post = site.posts.first %}
                     {% if featured_post %}
