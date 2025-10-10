@@ -11,7 +11,7 @@
     
     <!-- Product Reviews Page -->
     <url>
-        <loc>https://nosecleaner.online/reviews.html</loc>
+        <loc>https://nosecleaner.online/reviews</loc>
         <lastmod>2025-01-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -19,7 +19,7 @@
     
     <!-- Safety Guide Page -->
     <url>
-        <loc>https://nosecleaner.online/guide.html</loc>
+        <loc>https://nosecleaner.online/guide</loc>
         <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -27,7 +27,7 @@
     
     <!-- Baby Care Page -->
     <url>
-        <loc>https://nosecleaner.online/baby.html</loc>
+        <loc>https://nosecleaner.online/baby</loc>
         <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -35,7 +35,7 @@
     
     <!-- About Page -->
     <url>
-        <loc>https://nosecleaner.online/about.html</loc>
+        <loc>https://nosecleaner.online/about</loc>
         <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
