@@ -184,6 +184,68 @@
             color: #3b82f6;
         }
         
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .post-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .post-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .post-card:hover .post-image img {
+            transform: scale(1.05);
+        }
+        
+        .post-content {
+            padding: 1.5rem;
+        }
+        
+        .post-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .post-content h3 a {
+            color: #1e293b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .post-content h3 a:hover {
+            color: #3b82f6;
+        }
+        
+        .post-content p {
+            color: #64748b;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
         .blog-posts {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -435,6 +497,10 @@
                 text-align: center;
             }
             
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .blog-posts {
                 grid-template-columns: 1fr;
             }
@@ -468,6 +534,31 @@
                         <a href="/blog/navage-vs-neilmed-detailed-comparison/" class="read-more">Read More →</a>
                     </div>
                 </article>
+
+                <!-- Additional Posts -->
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-image">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/images/responsive/baby-aspirator_800x600.webp">
+                                <img src="/images/responsive/baby-aspirator_400x300.webp" 
+                                     alt="Electric vs Manual Aspirators" 
+                                     loading="lazy"
+                                     width="400" 
+                                     height="300">
+                            </picture>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Product Reviews</span>
+                                <span class="post-date">August 15, 2025</span>
+                            </div>
+                            <h3><a href="/blog/electric-vs-manual-nasal-aspirators/">Electric vs Manual Nasal Aspirators: Which is Better for Your Baby?</a></h3>
+                            <p>Compare electric and manual nasal aspirators for babies. Learn the pros, cons, and best use cases for each type to make the right choice for your family.</p>
+                            <a href="/blog/electric-vs-manual-nasal-aspirators/" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                </div>
 
             </main>
 
