@@ -420,29 +420,30 @@
 
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="/">
-                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" width="45" height="45">
-                        <span>Nose Cleaner</span>
-                    </a>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="/images/responsive/logo_150x150.webp" 
+                         alt="Nose Cleaner Logo" 
+                         class="logo-img"
+                         loading="eager">
+                    <h1>Nose Cleaner</h1>
                 </div>
-                <nav class="nav">
-                    <ul class="nav-list">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/reviews">Reviews</a></li>
-                        <li><a href="/guide">Guide</a></li>
-                        <li><a href="/baby">Baby Care</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/blog/" class="active">Blog</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <button class="btn btn-primary" onclick="document.getElementById('newsletter-form').scrollIntoView()">Subscribe</button>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/blog/" class="nav-link active">Blog</a>
+                    <a href="/reviews" class="nav-link">Reviews</a>
+                    <a href="/guide" class="nav-link">Guide</a>
+                    <a href="/baby" class="nav-link">Baby Care</a>
+                    <a href="/about" class="nav-link">About</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
 
     <!-- Blog Hero -->
