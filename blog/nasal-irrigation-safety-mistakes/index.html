@@ -55,47 +55,6 @@
     
     <!-- Article Styles -->
     <style>
-        .article-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 0 3rem;
-            text-align: center;
-        }
-        
-        .article-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-        }
-        
-        .article-category {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-        
-        .article-date {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .article-header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .article-excerpt {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
         
         .article-content {
             padding: 3rem 0;
@@ -165,7 +124,7 @@
             margin-bottom: 0.5rem;
         }
         
-        .article-sidebar {
+        .blog-sidebar {
             display: flex;
             flex-direction: column;
             gap: 2rem;
@@ -229,9 +188,53 @@
             line-height: 1.3;
         }
         
-        .related-posts span {
+        .recent-posts span {
             font-size: 0.8rem;
             color: #64748b;
+        }
+        
+        .newsletter-widget {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .newsletter-widget h3 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .newsletter-widget p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .newsletter-form input {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background: white;
+            color: #3b82f6;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
         }
         
         .category-list {
@@ -264,9 +267,6 @@
                 gap: 2rem;
             }
             
-            .article-header h1 {
-                font-size: 2rem;
-            }
             
             .article-excerpt {
                 font-size: 1rem;
@@ -354,17 +354,6 @@
         </nav>
     </header>
 
-    <!-- Article Header -->
-    <section class="article-header">
-        <div class="container">
-            <div class="article-meta">
-                <span class="article-category">Safety Tips</span>
-                <span class="article-date">January 6, 2025</span>
-            </div>
-            <h1>5 Common Nasal Irrigation Safety Mistakes You Must Avoid</h1>
-            <p class="article-excerpt">Discover the most dangerous mistakes people make with nasal irrigation and learn how to use your nose cleaner safely and effectively.</p>
-        </div>
-    </section>
 
     <!-- Article Content -->
     <article class="article-content">
@@ -534,7 +523,19 @@
                     </div>
                 </main>
 
-                <aside class="article-sidebar">
+                <aside class="blog-sidebar">
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="/blog/category/baby-care/">Baby Care <span>(2)</span></a></li>
+                            <li><a href="/blog/category/adult-care/">Adult Care <span>(0)</span></a></li>
+                            <li><a href="/blog/category/product-reviews/">Product Reviews <span>(2)</span></a></li>
+                            <li><a href="/blog/category/safety-tips/">Safety Tips <span>(1)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts -->
                     <div class="sidebar-widget">
                         <h3>Recent Posts</h3>
                         <ul class="recent-posts">
@@ -586,14 +587,17 @@
                         </ul>
                     </div>
 
-                    <div class="sidebar-widget">
-                        <h3>Categories</h3>
-                        <ul class="category-list">
-                            <li><a href="/blog/category/baby-care/">Baby Care</a></li>
-                            <li><a href="/blog/category/adult-care/">Adult Care</a></li>
-                            <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
-                            <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
-                        </ul>
+                    <!-- Newsletter -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Stay Updated</h3>
+                        <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
+                        <form class="newsletter-form" id="newsletter-form">
+                            <input type="email" placeholder="Enter your email address" required 
+                                   title="Please enter a valid email address"
+                                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                                   oninput="this.setCustomValidity('')">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
                     </div>
                 </aside>
             </div>
