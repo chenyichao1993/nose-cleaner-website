@@ -11,7 +11,7 @@ import os
 import glob
 
 def optimize_images():
-    """优化所有图片"""
+    """只优化新添加的图片"""
     
     # 确保输出目录存在
     os.makedirs('images/webp', exist_ok=True)
@@ -20,14 +20,27 @@ def optimize_images():
     # 获取所有PNG图片（包括original文件夹）
     png_files = glob.glob('images/*.png') + glob.glob('images/original/*.png')
     
+    processed_count = 0
+    skipped_count = 0
+    
     for png_file in png_files:
         filename = os.path.basename(png_file).replace('.png', '')
-        print(f"🔄 优化图片: {filename}")
+        
+        # 检查是否已经处理过（检查WebP文件是否存在）
+        webp_path = f'images/webp/{filename}.webp'
+        mobile_webp = f'images/responsive/{filename}_mobile.webp'
+        
+        if os.path.exists(webp_path) and os.path.exists(mobile_webp):
+            print(f"⏭️  跳过已处理: {filename}")
+            skipped_count += 1
+            continue
+        
+        print(f"🔄 优化新图片: {filename}")
+        processed_count += 1
         
         # 打开原图
         with Image.open(png_file) as img:
             # 1. 转换为WebP格式（高质量）
-            webp_path = f'images/webp/{filename}.webp'
             img.save(webp_path, 'WebP', quality=85, optimize=True)
             
             # 2. 生成响应式尺寸
@@ -65,7 +78,8 @@ def optimize_images():
         print(f"  ✅ WebP: {filename}.webp")
         print(f"  ✅ 响应式: {filename}_mobile, {filename}_tablet, {filename}_desktop")
     
-    print("\n🎉 图片优化完成！")
+    print(f"\n🎉 图片优化完成！")
+    print(f"📊 处理统计: 新处理 {processed_count} 张，跳过 {skipped_count} 张")
     print("📁 WebP格式: images/webp/")
     print("📁 响应式图片: images/responsive/")
 
