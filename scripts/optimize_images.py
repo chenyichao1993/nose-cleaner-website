@@ -17,8 +17,8 @@ def optimize_images():
     os.makedirs('images/webp', exist_ok=True)
     os.makedirs('images/responsive', exist_ok=True)
     
-    # 获取所有PNG图片
-    png_files = glob.glob('images/*.png')
+    # 获取所有PNG图片（包括original文件夹）
+    png_files = glob.glob('images/*.png') + glob.glob('images/original/*.png')
     
     for png_file in png_files:
         filename = os.path.basename(png_file).replace('.png', '')
