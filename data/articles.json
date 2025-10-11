@@ -1,0 +1,110 @@
+{
+  "articles": [
+    {
+      "slug": "adult-nasal-irrigation-complete-guide",
+      "title": "Adult Nasal Irrigation Complete Guide: Safe Methods and Best Practices",
+      "shortTitle": "Adult Nasal Irrigation Complete Guide",
+      "category": "Adult Care",
+      "date": "2025-10-01",
+      "displayDate": "October 1, 2025",
+      "excerpt": "Complete guide to adult nasal irrigation. Learn safe methods, benefits, contraindications, and best practices for nasal irrigation in adults.",
+      "image": {
+        "desktop": "adult-nasal-irrigation-guide_desktop.webp",
+        "mobile": "adult-nasal-irrigation-guide_mobile.webp"
+      },
+      "url": "/blog/adult-nasal-irrigation-complete-guide/"
+    },
+    {
+      "slug": "electric-vs-manual-nasal-aspirators",
+      "title": "Electric vs Manual Nasal Aspirators: Which is Better for Your Baby?",
+      "shortTitle": "Electric vs Manual Nasal Aspirators",
+      "category": "Product Reviews",
+      "date": "2025-08-15",
+      "displayDate": "August 15, 2025",
+      "excerpt": "Compare electric and manual nasal aspirators for babies. Learn the pros, cons, and best use cases for each type to make the right choice for your family.",
+      "image": {
+        "desktop": "electric-manual-aspirators_desktop.webp",
+        "mobile": "electric-manual-aspirators_mobile.webp"
+      },
+      "url": "/blog/electric-vs-manual-nasal-aspirators/"
+    },
+    {
+      "slug": "baby-nasal-congestion-remedies",
+      "title": "Baby Nasal Congestion: Natural Remedies vs Medical Solutions",
+      "shortTitle": "Baby Nasal Congestion Remedies",
+      "category": "Baby Care",
+      "date": "2025-06-22",
+      "displayDate": "June 22, 2025",
+      "excerpt": "Discover safe and effective ways to help your baby breathe easier. Compare natural remedies with medical solutions for baby nasal congestion.",
+      "image": {
+        "desktop": "baby-congestion-remedies_desktop.webp",
+        "mobile": "baby-congestion-remedies_mobile.webp"
+      },
+      "url": "/blog/baby-nasal-congestion-remedies/"
+    },
+    {
+      "slug": "navage-vs-neilmed-detailed-comparison",
+      "title": "Naväge vs NeilMed: Detailed Comparison of Top Nasal Irrigation Systems",
+      "shortTitle": "Naväge vs NeilMed Comparison",
+      "category": "Product Reviews",
+      "date": "2025-04-08",
+      "displayDate": "April 8, 2025",
+      "excerpt": "An in-depth comparison of the two most popular nasal irrigation systems, including features, effectiveness, and value for money.",
+      "image": {
+        "desktop": "comparison-chart_desktop.webp",
+        "mobile": "comparison-chart_mobile.webp"
+      },
+      "url": "/blog/navage-vs-neilmed-detailed-comparison/"
+    },
+    {
+      "slug": "nasal-irrigation-safety-mistakes",
+      "title": "5 Common Nasal Irrigation Safety Mistakes You Must Avoid",
+      "shortTitle": "5 Common Nasal Irrigation Safety Mistakes",
+      "category": "Safety Tips",
+      "date": "2025-02-14",
+      "displayDate": "February 14, 2025",
+      "excerpt": "Discover the most dangerous mistakes people make with nasal irrigation and learn how to use your nose cleaner safely and effectively.",
+      "image": {
+        "desktop": "nasal-irrigation-safety_desktop.webp",
+        "mobile": "nasal-irrigation-safety_mobile.webp"
+      },
+      "url": "/blog/nasal-irrigation-safety-mistakes/"
+    },
+    {
+      "slug": "complete-guide-baby-nasal-care",
+      "title": "Complete Guide to Baby Nasal Care: Safe Methods and Best Products",
+      "shortTitle": "Complete Guide to Baby Nasal Care",
+      "category": "Baby Care",
+      "date": "2024-12-18",
+      "displayDate": "December 18, 2024",
+      "excerpt": "Learn the safest and most effective methods for cleaning your baby's nose, including when to use nasal aspirators, saline drops, and other gentle techniques.",
+      "image": {
+        "desktop": "baby-nasal-care-guide_desktop.webp",
+        "mobile": "baby-nasal-care-guide_mobile.webp"
+      },
+      "url": "/blog/complete-guide-baby-nasal-care/"
+    }
+  ],
+  "categories": {
+    "Baby Care": {
+      "slug": "baby-care",
+      "count": 2,
+      "url": "/blog/category/baby-care/"
+    },
+    "Adult Care": {
+      "slug": "adult-care", 
+      "count": 1,
+      "url": "/blog/category/adult-care/"
+    },
+    "Product Reviews": {
+      "slug": "product-reviews",
+      "count": 2,
+      "url": "/blog/category/product-reviews/"
+    },
+    "Safety Tips": {
+      "slug": "safety-tips",
+      "count": 1,
+      "url": "/blog/category/safety-tips/"
+    }
+  }
+}
