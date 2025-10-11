@@ -55,47 +55,6 @@
     
     <!-- Article Styles -->
     <style>
-        .article-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 0 3rem;
-            text-align: center;
-        }
-        
-        .article-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-        }
-        
-        .article-category {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-        
-        .article-date {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .article-header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .article-excerpt {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
         
         .article-content {
             padding: 3rem 0;
@@ -314,12 +273,6 @@
         .newsletter-form button:hover {
             background: #f8fafc;
             transform: translateY(-1px);
-        }
-        
-        .newsletter-privacy {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 0.5rem;
         }
 
         .category-list {
@@ -808,9 +761,8 @@
                                    title="Please enter a valid email address"
                                    oninvalid="this.setCustomValidity('Please enter a valid email address')"
                                    oninput="this.setCustomValidity('')">
-                            <button type="submit">Subscribe</button>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
                         </form>
-                        <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
                     </div>
                 </aside>
             </div>
