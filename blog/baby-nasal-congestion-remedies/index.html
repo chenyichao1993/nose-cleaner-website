@@ -92,6 +92,43 @@
                 font-size: 18px;
             }
         }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-list li:not(:last-child)::after {
+            content: '>';
+            margin-left: 0.5rem;
+            color: #64748b;
+        }
+        
+        .breadcrumb-list a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-list li[aria-current="page"] {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
 </style>
     
     <!-- Blog Post Styles -->
@@ -441,6 +478,43 @@
                 font-size: 18px;
             }
         }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-list li:not(:last-child)::after {
+            content: '>';
+            margin-left: 0.5rem;
+            color: #64748b;
+        }
+        
+        .breadcrumb-list a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-list li[aria-current="page"] {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
 </style>
     
     <!-- Google Analytics -->
@@ -595,6 +669,20 @@
             </div>
         </nav>
     </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/blog/category/baby-care">Baby Care</a></li>
+                    <li aria-current="page">Baby Nasal Congestion Remedies</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
 
 
     <!-- Main Content -->
