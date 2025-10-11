@@ -93,6 +93,117 @@
             <p class="hero-description">Expert guides and tips for adult nasal care, including nasal irrigation safety, proper techniques, and choosing the right nasal irrigators for adults.</p>
         </div>
     </section>
+    
+    <!-- Blog Hero Styles -->
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem 0 2rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .blog-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-description {
+            font-size: 0.95rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.4;
+            text-align: center;
+        }
+        
+        .blog-content {
+            padding: 3rem 0;
+            background: #f8fafc;
+        }
+        
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .blog-main {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .featured-post-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .featured-post-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .featured-post-content h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .featured-post-content h2 a {
+            color: #1e293b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .featured-post-content h2 a:hover {
+            color: #3b82f6;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                padding: 2rem 0 1.5rem;
+            }
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            .hero-description {
+                font-size: 0.85rem;
+                max-width: 95%;
+                white-space: normal;
+            }
+            .blog-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 
     <!-- Main Content -->
     <div class="container">
@@ -122,18 +233,6 @@
                     </div>
                 </article>
 
-                <!-- Breadcrumb -->
-                <nav class="breadcrumb">
-                    <a href="/">Home</a> > 
-                    <a href="/blog/">Blog</a> > 
-                    <span>Adult Care</span>
-                </nav>
-
-                <!-- Category Description -->
-                <div class="category-description">
-                    <h2>Adult Nasal Care Essentials</h2>
-                    <p>Proper nasal irrigation is crucial for maintaining nasal health in adults. Our expert guides cover safety protocols, proper techniques, and how to choose the right nasal irrigator for your specific needs.</p>
-                </div>
             </main>
 
             <!-- Sidebar -->
@@ -202,38 +301,47 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="/images/responsive/logo_100x100.webp" alt="Nose Cleaner Logo" width="40" height="40">
-                        <h3>Nose Cleaner</h3>
-                    </div>
+                    <h3 class="footer-brand">
+                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" class="footer-logo">
+                        Nose Cleaner
+                    </h3>
                     <p>Your trusted source for nasal health products and expert guidance.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="/reviews.html">Product Reviews</a></li>
-                        <li><a href="/guide.html">Usage Guide</a></li>
-                        <li><a href="/baby.html">Baby Care</a></li>
-                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/reviews">Product Reviews</a></li>
+                        <li><a href="/guide">Usage Guide</a></li>
+                        <li><a href="/baby">Baby Care</a></li>
+                        <li><a href="/about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Blog Categories</h4>
+                    <ul>
+                        <li><a href="/blog/category/baby-care/">Baby Care</a></li>
+                        <li><a href="/blog/category/adult-care/">Adult Care</a></li>
+                        <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
+                        <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Important</h4>
                     <ul>
-                        <li><a href="/disclaimer.html">Medical Disclaimer</a></li>
-                        <li><a href="/privacy.html">Privacy Policy</a></li>
-                        <li><a href="/contact.html">Contact Us</a></li>
+                        <li><a href="/about#disclaimer">Medical Disclaimer</a></li>
+                        <li><a href="/about#privacy">Privacy Policy</a></li>
+                        <li><a href="/about#contact">Contact Us</a></li>
                         <li><a href="/blog/">Blog</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; Nose Cleaner. All rights reserved.</p>
+                <p>&copy; <span id="current-year-footer"></span> Nose Cleaner. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="/js/script.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
