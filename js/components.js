@@ -81,17 +81,34 @@ class ComponentLoader {
 window.componentLoader = new ComponentLoader();
 
 /**
- * 自动加载侧边栏组件
+ * 自动加载所有组件
  */
 document.addEventListener('DOMContentLoaded', async function() {
-    // 检查是否有侧边栏容器
+    const components = {};
+    
+    // 检查并加载页头组件
+    const headerContainer = document.querySelector('.header');
+    if (headerContainer) {
+        components['.header'] = '/components/header.html';
+    }
+    
+    // 检查并加载页脚组件
+    const footerContainer = document.querySelector('.footer');
+    if (footerContainer) {
+        components['.footer'] = '/components/footer.html';
+    }
+    
+    // 检查并加载侧边栏组件
     const sidebarContainer = document.querySelector('.blog-sidebar');
     if (sidebarContainer) {
-        try {
-            await window.componentLoader.insertComponent('.blog-sidebar', '/components/sidebar.html');
-        } catch (error) {
-            console.error('Failed to load sidebar component:', error);
-        }
+        components['.blog-sidebar'] = '/components/sidebar.html';
+    }
+    
+    // 批量加载所有组件
+    try {
+        await window.componentLoader.loadComponents(components);
+    } catch (error) {
+        console.error('Failed to load components:', error);
     }
 });
 
