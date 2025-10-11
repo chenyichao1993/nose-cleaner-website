@@ -29,7 +29,7 @@
     
     <!-- Reviews page images -->
     <url>
-        <loc>https://nosecleaner.online/reviews.html</loc>
+        <loc>https://nosecleaner.online/reviews</loc>
         <image:image>
             <image:loc>https://nosecleaner.online/images/webp/navage-device.webp</image:loc>
             <image:title>Naväge Nasal Irrigator Device</image:title>
@@ -49,7 +49,7 @@
     
     <!-- Guide page images -->
     <url>
-        <loc>https://nosecleaner.online/guide.html</loc>
+        <loc>https://nosecleaner.online/guide</loc>
         <image:image>
             <image:loc>https://nosecleaner.online/images/webp/safety-guide.webp</image:loc>
             <image:title>Nose Cleaner Safety Guide</image:title>
@@ -59,7 +59,7 @@
     
     <!-- Baby care page images -->
     <url>
-        <loc>https://nosecleaner.online/baby.html</loc>
+        <loc>https://nosecleaner.online/baby</loc>
         <image:image>
             <image:loc>https://nosecleaner.online/images/webp/baby-nose-cleaner.webp</image:loc>
             <image:title>Baby Nose Cleaner Device</image:title>
@@ -84,11 +84,87 @@
     
     <!-- About page images -->
     <url>
-        <loc>https://nosecleaner.online/about.html</loc>
+        <loc>https://nosecleaner.online/about</loc>
         <image:image>
             <image:loc>https://nosecleaner.online/images/responsive/about-team_800x600.webp</image:loc>
             <image:title>Nose Cleaner Team</image:title>
             <image:caption>Professional team working on nasal health research and product testing</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Blog homepage images -->
+    <url>
+        <loc>https://nosecleaner.online/blog/</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/baby-nasal-care-guide_desktop.webp</image:loc>
+            <image:title>Complete Guide to Baby Nasal Care</image:title>
+            <image:caption>Comprehensive guide for safe baby nasal care methods and products</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/nasal-irrigation-safety_desktop.webp</image:loc>
+            <image:title>Nasal Irrigation Safety Tips</image:title>
+            <image:caption>Essential safety guidelines for nasal irrigation devices</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/comparison-chart_desktop.webp</image:loc>
+            <image:title>Naväge vs NeilMed Comparison</image:title>
+            <image:caption>Detailed comparison of top nasal irrigation systems</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/baby-congestion-remedies_desktop.webp</image:loc>
+            <image:title>Baby Nasal Congestion Remedies</image:title>
+            <image:caption>Natural and medical solutions for baby nasal congestion</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/electric-manual-aspirators_desktop.webp</image:loc>
+            <image:title>Electric vs Manual Nasal Aspirators</image:title>
+            <image:caption>Comparison of electric and manual nasal aspirators for babies</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Blog article images -->
+    <url>
+        <loc>https://nosecleaner.online/blog/complete-guide-baby-nasal-care/</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/baby-nasal-care-guide_desktop.webp</image:loc>
+            <image:title>Complete Guide to Baby Nasal Care</image:title>
+            <image:caption>Safe methods and best products for baby nasal care</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://nosecleaner.online/blog/nasal-irrigation-safety-mistakes/</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/nasal-irrigation-safety_desktop.webp</image:loc>
+            <image:title>5 Common Nasal Irrigation Safety Mistakes</image:title>
+            <image:caption>Essential safety tips and guidelines for using nose cleaners safely</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://nosecleaner.online/blog/navage-vs-neilmed-detailed-comparison/</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/comparison-chart_desktop.webp</image:loc>
+            <image:title>Naväge vs NeilMed Detailed Comparison</image:title>
+            <image:caption>Comprehensive comparison of top nasal irrigation systems</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://nosecleaner.online/blog/electric-vs-manual-nasal-aspirators/</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/electric-manual-aspirators_desktop.webp</image:loc>
+            <image:title>Electric vs Manual Nasal Aspirators</image:title>
+            <image:caption>Which nasal aspirator type is better for your baby</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://nosecleaner.online/blog/baby-nasal-congestion-remedies/</loc>
+        <image:image>
+            <image:loc>https://nosecleaner.online/images/responsive/baby-congestion-remedies_desktop.webp</image:loc>
+            <image:title>Baby Nasal Congestion Remedies</image:title>
+            <image:caption>Natural remedies vs medical solutions for baby nasal congestion</image:caption>
         </image:image>
     </url>
     
