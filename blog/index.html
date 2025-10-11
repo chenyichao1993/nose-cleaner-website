@@ -33,6 +33,27 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/blog/css/blog.css">
     
+    <!-- Navigation Styles -->
+    <style>
+        .nav-logo a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .nav-logo a:hover {
+            text-decoration: none;
+        }
+        
+        .nav-logo a h1 {
+            color: #2563eb;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+    </style>
+    
     <!-- Blog Hero Styles -->
     <style>
         .blog-hero {
@@ -42,19 +63,27 @@
             text-align: center;
         }
         
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
         .blog-hero h1 {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
             color: white;
+            text-align: center;
         }
         
         .hero-description {
-            font-size: 1rem;
-            max-width: 800px;
+            font-size: 0.95rem;
+            max-width: 1000px;
             margin: 0 auto;
             opacity: 0.9;
             line-height: 1.4;
+            text-align: center;
         }
         
         .blog-content {
@@ -355,8 +384,9 @@
             }
             
             .hero-description {
-                font-size: 0.9rem;
-                max-width: 90%;
+                font-size: 0.85rem;
+                max-width: 95%;
+                white-space: normal;
             }
             
             .featured-post {
