@@ -272,6 +272,56 @@
             color: #64748b;
         }
         
+        .newsletter-widget {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .newsletter-widget h3 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .newsletter-widget p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .newsletter-form input {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background: white;
+            color: #3b82f6;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
+        }
+        
+        .newsletter-privacy {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+
         .category-list {
             list-style: none;
             padding: 0;
@@ -685,6 +735,18 @@
                 </main>
 
                 <aside class="blog-sidebar">
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="/blog/category/baby-care/">Baby Care <span>(2)</span></a></li>
+                            <li><a href="/blog/category/adult-care/">Adult Care <span>(0)</span></a></li>
+                            <li><a href="/blog/category/product-reviews/">Product Reviews <span>(2)</span></a></li>
+                            <li><a href="/blog/category/safety-tips/">Safety Tips <span>(1)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts -->
                     <div class="sidebar-widget">
                         <h3>Recent Posts</h3>
                         <ul class="recent-posts">
@@ -736,14 +798,19 @@
                         </ul>
                     </div>
 
-                    <div class="sidebar-widget">
-                        <h3>Categories</h3>
-                        <ul class="category-list">
-                            <li><a href="/blog/category/baby-care/">Baby Care</a></li>
-                            <li><a href="/blog/category/adult-care/">Adult Care</a></li>
-                            <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
-                            <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
-                        </ul>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Stay Updated</h3>
+                        <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
+                        <form class="newsletter-form" id="newsletter-form">
+                            <input type="email" placeholder="Enter your email address" required 
+                                   title="Please enter a valid email address"
+                                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                                   oninput="this.setCustomValidity('')">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
                     </div>
                 </aside>
             </div>
