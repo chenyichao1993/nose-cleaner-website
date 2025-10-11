@@ -38,22 +38,23 @@
         .blog-hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 4rem 0 3rem;
+            padding: 2.5rem 0 2rem;
             text-align: center;
         }
         
         .blog-hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: white;
         }
         
         .hero-description {
-            font-size: 1.2rem;
-            max-width: 600px;
+            font-size: 1rem;
+            max-width: 800px;
             margin: 0 auto;
             opacity: 0.9;
+            line-height: 1.4;
         }
         
         .blog-content {
@@ -345,12 +346,17 @@
                 gap: 2rem;
             }
             
+            .blog-hero {
+                padding: 2rem 0 1.5rem;
+            }
+            
             .blog-hero h1 {
                 font-size: 2rem;
             }
             
             .hero-description {
-                font-size: 1rem;
+                font-size: 0.9rem;
+                max-width: 90%;
             }
             
             .featured-post {
@@ -423,11 +429,13 @@
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="/images/responsive/logo_150x150.webp" 
-                         alt="Nose Cleaner Logo" 
-                         class="logo-img"
-                         loading="eager">
-                    <h1>Nose Cleaner</h1>
+                    <a href="/">
+                        <img src="/images/responsive/logo_150x150.webp" 
+                             alt="Nose Cleaner Logo" 
+                             class="logo-img"
+                             loading="eager">
+                        <h1>Nose Cleaner</h1>
+                    </a>
                 </div>
                 <div class="nav-menu" id="nav-menu">
                     <a href="/" class="nav-link">Home</a>
