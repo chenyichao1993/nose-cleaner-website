@@ -87,21 +87,21 @@ document.addEventListener('DOMContentLoaded', async function() {
     const components = {};
     
     // 检查并加载页头组件
-    const headerContainer = document.querySelector('.header');
+    const headerContainer = document.getElementById('header-component');
     if (headerContainer) {
-        components['.header'] = '/components/header.html';
+        components['#header-component'] = '/components/header.html';
     }
     
     // 检查并加载页脚组件
-    const footerContainer = document.querySelector('.footer');
+    const footerContainer = document.getElementById('footer-component');
     if (footerContainer) {
-        components['.footer'] = '/components/footer.html';
+        components['#footer-component'] = '/components/footer.html';
     }
     
     // 检查并加载侧边栏组件
-    const sidebarContainer = document.querySelector('.blog-sidebar');
+    const sidebarContainer = document.getElementById('sidebar-component');
     if (sidebarContainer) {
-        components['.blog-sidebar'] = '/components/sidebar.html';
+        components['#sidebar-component'] = '/components/sidebar.html';
     }
     
     // 批量加载所有组件
