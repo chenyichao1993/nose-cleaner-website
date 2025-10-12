@@ -98,13 +98,376 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
-            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
             transition: all 0.3s ease;
+            z-index: 1000;
         }
         
         .back-to-top:hover {
             background: #2563eb;
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+        
+        .back-to-top.show {
+            display: flex;
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-list li:not(:last-child)::after {
+            content: '>';
+            margin-left: 0.5rem;
+            color: #64748b;
+        }
+        
+        .breadcrumb-list a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-list li[aria-current="page"] {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+    
+    <style>
+        /* Article-specific styles */
+        .article-main {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .article-title-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .article-category {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        
+        .article-date {
+            color: #64748b;
+        }
+        
+        .article-title-section h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+            line-height: 1.2;
+        }
+        
+        .article-excerpt {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .article-image {
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+        
+        .article-body h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1.5rem 0;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: #1e293b;
+        }
+        
+        .article-body h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #1e293b;
+        }
+        
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-body ul, .article-body ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-body blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #64748b;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .article-body .highlight-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .article-body .warning-box {
+            background: #fef2f2;
+            border: 1px solid #ef4444;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .article-body .info-box {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        /* Sidebar styles */
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .sidebar-widget {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .sidebar-widget h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .category-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #64748b;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .category-list a:hover {
+            color: #3b82f6;
+        }
+        
+        .recent-posts {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .recent-posts li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .recent-posts li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .recent-posts a {
+            display: flex;
+            gap: 1rem;
+            color: #1e293b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .recent-posts a:hover {
+            color: #3b82f6;
+        }
+        
+        .recent-posts img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .recent-posts h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+        
+        .recent-posts span {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        
+        .newsletter-widget {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .newsletter-widget h3 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .newsletter-widget p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .newsletter-form input {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        .newsletter-form button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
         }
         
         .back-to-top.show {
@@ -160,8 +523,30 @@
     </style>
 </head>
 <body>
-    <!-- Header Component -->
-    <div id="header-placeholder"></div>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="/">
+                        <img src="/images/responsive/logo_150x150.webp" 
+                             alt="Nose Cleaner Logo" 
+                             class="logo-img"
+                             loading="eager">
+                        <h1>Nose Cleaner</h1>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="/reviews">Reviews</a></li>
+                    <li><a href="/guide">Guide</a></li>
+                    <li><a href="/baby">Baby Care</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
@@ -332,68 +717,304 @@
                 </div>
             </main>
             
-            <!-- Sidebar Component -->
-            <div id="sidebar-placeholder"></div>
+            <!-- Sidebar -->
+                    </div>
+
+                    <h2>Scientific Benefits and Effectiveness</h2>
+                    <p>Research has consistently shown that nasal irrigation is an effective treatment for various nasal and sinus conditions. Studies published in medical journals have demonstrated its benefits for:</p>
+                    
+                    <h3>Chronic Sinusitis</h3>
+                    <p>Multiple studies have shown that regular nasal irrigation can significantly reduce symptoms of chronic sinusitis, including nasal congestion, facial pain, and post-nasal drip. The practice helps remove inflammatory substances and bacteria from the nasal passages.</p>
+                    
+                    <h3>Allergic Rhinitis</h3>
+                    <p>Nasal irrigation is particularly effective for people with seasonal or perennial allergies. It physically removes allergens from the nasal passages, reducing the body's inflammatory response and providing relief from sneezing, congestion, and nasal itching.</p>
+                    
+                    <h3>Upper Respiratory Infections</h3>
+                    <p>During cold and flu season, nasal irrigation can help reduce the duration and severity of symptoms by clearing mucus and reducing viral load in the nasal passages.</p>
+
+                    <h2>Types of Nasal Irrigation Devices</h2>
+                    <p>There are several types of devices available for adult nasal irrigation, each with its own advantages:</p>
+                    
+                    <h3>Neti Pot</h3>
+                    <p>The traditional neti pot is a small teapot-like device that uses gravity to deliver saline solution through the nasal passages. It's simple, inexpensive, and effective for most users.</p>
+                    
+                    <h3>Nasal Rinse Bottles</h3>
+                    <p>Squeeze bottles provide more control over the pressure and flow of the saline solution. They're portable and often preferred by people who want more control over the irrigation process.</p>
+                    
+                    <h3>Electric Nasal Irrigators</h3>
+                    <p>Electric devices like the Naväge system provide consistent pressure and are easier to use for people with limited dexterity. They often include features like adjustable pressure settings and built-in saline pods.</p>
+
+                    <h2>Step-by-Step Guide to Safe Nasal Irrigation</h2>
+                    
+                    <h3>Preparation</h3>
+                    <ol>
+                        <li><strong>Prepare the saline solution:</strong> Use distilled, sterile, or previously boiled water. Never use tap water directly.</li>
+                        <li><strong>Mix the solution:</strong> Add 1/4 to 1/2 teaspoon of non-iodized salt to 8 ounces of warm water. The water should be body temperature (98-100°F).</li>
+                        <li><strong>Choose your device:</strong> Select a clean, properly maintained irrigation device.</li>
+                    </ol>
+                    
+                    <h3>Proper Technique</h3>
+                    <ol>
+                        <li><strong>Position yourself:</strong> Lean over a sink at a 45-degree angle, tilting your head to one side.</li>
+                        <li><strong>Insert the device:</strong> Gently insert the spout into your upper nostril, creating a seal.</li>
+                        <li><strong>Begin irrigation:</strong> Slowly pour or squeeze the saline solution into your upper nostril.</li>
+                        <li><strong>Allow drainage:</strong> Let the solution flow through your nasal passages and drain out the lower nostril.</li>
+                        <li><strong>Repeat:</strong> Use half the solution for each nostril, then repeat the process for the other side.</li>
+                        <li><strong>Clear your nose:</strong> Gently blow your nose to remove any remaining solution and mucus.</li>
+                    </ol>
+
+                    <div class="warning-box">
+                        <h4>Important Safety Considerations:</h4>
+                        <ul>
+                            <li>Always use distilled, sterile, or previously boiled water</li>
+                            <li>Never use tap water directly as it may contain harmful microorganisms</li>
+                            <li>Stop if you experience severe pain or bleeding</li>
+                            <li>Consult your doctor if you have frequent nosebleeds or sinus infections</li>
+                            <li>Clean your irrigation device thoroughly after each use</li>
+                        </ul>
+                    </div>
+
+                    <h2>When to Use Nasal Irrigation</h2>
+                    <p>Nasal irrigation is beneficial in many situations, but it's particularly helpful for:</p>
+                    
+                    <h3>Daily Maintenance</h3>
+                    <p>Many people find that daily nasal irrigation helps maintain clear breathing and reduces the frequency of sinus problems. This is especially beneficial for people with chronic sinus issues or allergies.</p>
+                    
+                    <h3>During Allergy Season</h3>
+                    <p>Regular irrigation during peak allergy seasons can significantly reduce symptoms by removing allergens from the nasal passages before they can cause inflammation.</p>
+                    
+                    <h3>Cold and Flu Recovery</h3>
+                    <p>Nasal irrigation can help speed recovery from upper respiratory infections by clearing mucus and reducing congestion.</p>
+                    
+                    <h3>Post-Surgical Care</h3>
+                    <p>After sinus surgery, nasal irrigation is often recommended to help with healing and prevent infection.</p>
+
+                    <h2>Contraindications and When to Avoid</h2>
+                    <p>While nasal irrigation is generally safe, there are some situations where it should be avoided or used with caution:</p>
+                    
+                    <h3>Complete Nasal Obstruction</h3>
+                    <p>If your nasal passages are completely blocked, irrigation may not be effective and could cause discomfort.</p>
+                    
+                    <h3>Recent Nasal Surgery</h3>
+                    <p>Wait for your doctor's approval before resuming nasal irrigation after nasal or sinus surgery.</p>
+                    
+                    <h3>Frequent Nosebleeds</h3>
+                    <p>If you experience frequent nosebleeds, consult your doctor before starting nasal irrigation.</p>
+                    
+                    <h3>Ear Infections</h3>
+                    <p>If you have an active ear infection, nasal irrigation might worsen the condition by forcing fluid into the Eustachian tubes.</p>
+
+                    <h2>Best Practices for Optimal Results</h2>
+                    
+                    <h3>Consistency is Key</h3>
+                    <p>For best results, establish a regular routine. Many people find that daily irrigation provides the most benefit, while others prefer to use it as needed during allergy season or when experiencing congestion.</p>
+                    
+                    <h3>Proper Water Temperature</h3>
+                    <p>Use lukewarm water (body temperature) for comfort and effectiveness. Water that's too hot or too cold can cause discomfort and may be less effective.</p>
+                    
+                    <h3>Maintain Your Equipment</h3>
+                    <p>Clean your irrigation device thoroughly after each use and replace it regularly according to the manufacturer's instructions. This prevents bacterial growth and ensures optimal performance.</p>
+                    
+                    <h3>Gradual Introduction</h3>
+                    <p>If you're new to nasal irrigation, start slowly and gradually increase frequency as you become more comfortable with the process.</p>
+
+                    <h2>Common Mistakes to Avoid</h2>
+                    
+                    <h3>Using Tap Water</h3>
+                    <p>Never use untreated tap water for nasal irrigation. Always use distilled, sterile, or previously boiled water to prevent infection.</p>
+                    
+                    <h3>Incorrect Positioning</h3>
+                    <p>Proper positioning is crucial for effective irrigation. Make sure you're leaning forward at the correct angle to allow proper drainage.</p>
+                    
+                    <h3>Too Much Pressure</h3>
+                    <p>Use gentle pressure when irrigating. Too much force can cause discomfort and may force water into your ears.</p>
+                    
+                    <h3>Inadequate Cleaning</h3>
+                    <p>Always clean your irrigation device thoroughly after use to prevent bacterial contamination.</p>
+
+                    <h2>Integrating Nasal Irrigation with Other Treatments</h2>
+                    <p>Nasal irrigation can be effectively combined with other treatments for enhanced results:</p>
+                    
+                    <h3>With Allergy Medications</h3>
+                    <p>Nasal irrigation can reduce the need for antihistamines and decongestants by physically removing allergens from the nasal passages.</p>
+                    
+                    <h3>With Steam Therapy</h3>
+                    <p>Combining nasal irrigation with steam therapy can provide additional relief for congestion and sinus pressure.</p>
+                    
+                    <h3>With Hydration</h3>
+                    <p>Staying well-hydrated helps maintain the effectiveness of nasal irrigation by keeping mucus thin and easy to remove.</p>
+
+                    <h2>Conclusion</h2>
+                    <p>Adult nasal irrigation is a safe, effective, and natural way to maintain nasal health and relieve various sinus-related symptoms. When performed correctly with proper equipment and technique, it can provide significant relief from congestion, allergies, and sinus pressure.</p>
+                    
+                    <p>Remember to always use sterile water, maintain proper technique, and consult with your healthcare provider if you have any concerns or underlying health conditions. With consistent practice, nasal irrigation can become an invaluable part of your daily health routine.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Quick Reference Checklist:</h4>
+                        <ul>
+                            <li>✓ Use distilled, sterile, or boiled water only</li>
+                            <li>✓ Maintain proper positioning (45-degree angle)</li>
+                            <li>✓ Use body-temperature water</li>
+                            <li>✓ Clean equipment thoroughly after each use</li>
+                            <li>✓ Start slowly if you're new to irrigation</li>
+                            <li>✓ Consult your doctor if you have concerns</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Sidebar -->
+<aside class="blog-sidebar">
+    <!-- Categories Widget -->
+    <div class="sidebar-widget">
+        <h3>Categories</h3>
+        <ul class="category-list">
+            <li><a href="/blog/category/baby-care/">Baby Care <span>(2)</span></a></li>
+            <li><a href="/blog/category/adult-care/">Adult Care <span>(2)</span></a></li>
+            <li><a href="/blog/category/product-reviews/">Product Reviews <span>(2)</span></a></li>
+            <li><a href="/blog/category/safety-tips/">Safety Tips <span>(1)</span></a></li>
+        </ul>
+    </div>
+    
+    <!-- Recent Posts Widget -->
+    <div class="sidebar-widget">
+        <h3>Recent Posts</h3>
+        <ul class="recent-posts">
+            <li>
+                <a href="/blog/best-way-to-clean-your-nose/">
+                    <img src="/images/responsive/best-way-to-clean-your-nose_mobile.webp" alt="Best Way to Clean Your Nose Complete Guide" width="60" height="60">
+                    <div>
+                        <h4>Best Way to Clean Your Nose Complete Guide</h4>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/adult-nasal-irrigation-complete-guide/">
+                    <img src="/images/responsive/adult-nasal-irrigation-complete-guide_mobile.webp" alt="Adult Nasal Irrigation Complete Guide" width="60" height="60">
+                    <div>
+                        <h4>Adult Nasal Irrigation Complete Guide</h4>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/electric-vs-manual-nasal-aspirators/">
+                    <img src="/images/responsive/electric-manual-aspirators_mobile.webp" alt="Electric vs Manual Nasal Aspirators" width="60" height="60">
+                    <div>
+                        <h4>Electric vs Manual Nasal Aspirators</h4>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/baby-nasal-congestion-remedies/">
+                    <img src="/images/responsive/baby-congestion-remedies_mobile.webp" alt="Baby Nasal Congestion Remedies" width="60" height="60">
+                    <div>
+                        <h4>Baby Nasal Congestion Remedies</h4>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/navage-vs-neilmed-detailed-comparison/">
+                    <img src="/images/responsive/comparison-chart_mobile.webp" alt="Naväge vs NeilMed Comparison" width="60" height="60">
+                    <div>
+                        <h4>Naväge vs NeilMed Comparison</h4>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Newsletter Widget -->
+    <div class="sidebar-widget newsletter-widget">
+        <h3>Stay Updated</h3>
+        <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required 
+                   title="Please enter a valid email address"
+                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                   oninput="this.setCustomValidity('')">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+</aside>
         </div>
     </div>
 
-    <!-- Footer Component -->
-    <div id="footer-placeholder"></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="/images/responsive/logo_200x60.webp" alt="Nose Cleaner" width="200" height="60">
+                    <p>Your trusted source for nasal health products and expert guidance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="/reviews">Product Reviews</a></li>
+                            <li><a href="/guide">Usage Guide</a></li>
+                            <li><a href="/baby">Baby Care</a></li>
+                            <li><a href="/about">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Blog Categories</h4>
+                        <ul>
+                            <li><a href="/blog/category/baby-care/">Baby Care</a></li>
+                            <li><a href="/blog/category/adult-care/">Adult Care</a></li>
+                            <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
+                            <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Important</h4>
+                        <ul>
+                            <li><a href="/medical-disclaimer">Medical Disclaimer</a></li>
+                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
+                            <li><a href="/blog/">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nose Cleaner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <button id="back-to-top" class="back-to-top" aria-label="返回顶部">
         ↑
     </button>
 
-    <!-- Scripts -->
     <script>
-        // Load components
-        function loadComponent(elementId, componentPath) {
-            fetch(componentPath)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error loading component:', error);
+        // Back to Top Button
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            // Smooth scroll to top when clicked
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
-        }
-
-        // Load all components
-        loadComponent('header-placeholder', '/components/header.html');
-        loadComponent('sidebar-placeholder', '/components/sidebar.html');
-        loadComponent('footer-placeholder', '/components/footer.html');
-
-        // Back to top functionality
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
             });
         });
-
-        // Mobile navigation toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (navToggle && navMenu) {
-                navToggle.addEventListener('click', () => {
-                    navMenu.classList.toggle('active');
-                    navToggle.classList.toggle('active');
-                });
-            }
-        });
     </script>
+    <!-- Component Loader -->
+    <script src="/js/components.js"></script>
 </body>
 </html>
