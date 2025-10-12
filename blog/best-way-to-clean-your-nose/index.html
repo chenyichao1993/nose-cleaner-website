@@ -59,8 +59,8 @@
     <link rel="canonical" href="https://nosecleaner.online/blog/best-way-to-clean-your-nose/">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="/css/style.css?v=20241201">
-    <link rel="stylesheet" href="/blog/css/blog.css?v=20241201">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
     
     <!-- Navigation Styles -->
     <style>
@@ -160,30 +160,8 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="/">
-                        <img src="/images/responsive/logo_150x150.webp" 
-                             alt="Nose Cleaner Logo" 
-                             class="logo-img"
-                             loading="eager">
-                        <h1>Nose Cleaner</h1>
-                    </a>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/blog/" class="active">Blog</a></li>
-                    <li><a href="/reviews">Reviews</a></li>
-                    <li><a href="/guide">Guide</a></li>
-                    <li><a href="/baby">Baby Care</a></li>
-                    <li><a href="/about">About</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
@@ -354,131 +332,13 @@
                 </div>
             </main>
             
-            <!-- Sidebar -->
-            <aside class="blog-sidebar">
-                <!-- Categories Widget -->
-                <div class="sidebar-widget">
-                    <h3>Categories</h3>
-                    <ul class="category-list">
-                        <li><a href="/blog/category/baby-care">Baby Care <span>(2)</span></a></li>
-                        <li><a href="/blog/category/adult-care">Adult Care <span>(2)</span></a></li>
-                        <li><a href="/blog/category/product-reviews">Product Reviews <span>(2)</span></a></li>
-                        <li><a href="/blog/category/safety-tips">Safety Tips <span>(1)</span></a></li>
-                    </ul>
-                </div>
-
-                <!-- Recent Posts Widget -->
-                <div class="sidebar-widget">
-                    <h3>Recent Posts</h3>
-                    <div class="recent-posts">
-                        <div class="recent-post">
-                            <div class="recent-post-image">
-                                <img src="/images/responsive/best-way-to-clean-your-nose_desktop.webp" alt="Best Way to Clean Your Nose Complete Guide">
-                            </div>
-                            <div class="recent-post-content">
-                                <h4><a href="/blog/best-way-to-clean-your-nose/">Best Way to Clean Your Nose Complete Guide</a></h4>
-                            </div>
-                        </div>
-                        <div class="recent-post">
-                            <div class="recent-post-image">
-                                <img src="/images/responsive/adult-nasal-irrigation-complete-guide_desktop.webp" alt="Adult Nasal Irrigation Complete Guide">
-                            </div>
-                            <div class="recent-post-content">
-                                <h4><a href="/blog/adult-nasal-irrigation-complete-guide/">Adult Nasal Irrigation Complete Guide</a></h4>
-                            </div>
-                        </div>
-                        <div class="recent-post">
-                            <div class="recent-post-image">
-                                <img src="/images/responsive/electric-vs-manual-nasal-aspirators_desktop.webp" alt="Electric vs Manual Nasal Aspirators">
-                            </div>
-                            <div class="recent-post-content">
-                                <h4><a href="/blog/electric-vs-manual-nasal-aspirators/">Electric vs Manual Nasal Aspirators</a></h4>
-                            </div>
-                        </div>
-                        <div class="recent-post">
-                            <div class="recent-post-image">
-                                <img src="/images/responsive/baby-nasal-congestion-remedies_desktop.webp" alt="Baby Nasal Congestion Remedies">
-                            </div>
-                            <div class="recent-post-content">
-                                <h4><a href="/blog/baby-nasal-congestion-remedies/">Baby Nasal Congestion Remedies</a></h4>
-                            </div>
-                        </div>
-                        <div class="recent-post">
-                            <div class="recent-post-image">
-                                <img src="/images/responsive/navage-vs-neilmed-comparison_desktop.webp" alt="Naväge vs NeilMed Comparison">
-                            </div>
-                            <div class="recent-post-content">
-                                <h4><a href="/blog/navage-vs-neilmed-comparison/">Naväge vs NeilMed Comparison</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Newsletter Widget -->
-                <div class="sidebar-widget newsletter-widget">
-                    <h3>Stay Updated</h3>
-                    <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
-                    <form class="newsletter-form" action="#" method="post">
-                        <input type="email" name="email" placeholder="Enter your email address" required
-                               oninvalid="this.setCustomValidity('Please enter a valid email address')"
-                               oninput="this.setCustomValidity('')">
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </aside>
+            <!-- Sidebar Component -->
+            <div id="sidebar-placeholder"></div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="/images/responsive/logo_150x150.webp" alt="Nose Cleaner Logo" width="40" height="40">
-                        <h3>Nose Cleaner</h3>
-                    </div>
-                    <p>Your trusted source for nasal health products and expert guidance.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="/reviews">Product Reviews</a></li>
-                            <li><a href="/guide">Usage Guide</a></li>
-                            <li><a href="/baby">Baby Care</a></li>
-                            <li><a href="/about">About Us</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Blog Categories</h4>
-                        <ul>
-                            <li><a href="/blog/category/baby-care">Baby Care</a></li>
-                            <li><a href="/blog/category/adult-care">Adult Care</a></li>
-                            <li><a href="/blog/category/product-reviews">Product Reviews</a></li>
-                            <li><a href="/blog/category/safety-tips">Safety Tips</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Important</h4>
-                        <ul>
-                            <li><a href="/medical-disclaimer">Medical Disclaimer</a></li>
-                            <li><a href="/privacy-policy">Privacy Policy</a></li>
-                            <li><a href="/contact">Contact Us</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; Nose Cleaner. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -487,6 +347,23 @@
 
     <!-- Scripts -->
     <script>
+        // Load components
+        function loadComponent(elementId, componentPath) {
+            fetch(componentPath)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading component:', error);
+                });
+        }
+
+        // Load all components
+        loadComponent('header-placeholder', '/components/header.html');
+        loadComponent('sidebar-placeholder', '/components/sidebar.html');
+        loadComponent('footer-placeholder', '/components/footer.html');
+
         // Back to top functionality
         const backToTopButton = document.getElementById('backToTop');
         
@@ -506,15 +383,17 @@
         });
 
         // Mobile navigation toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                navToggle.classList.toggle('active');
-            });
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+        });
     </script>
 </body>
 </html>
