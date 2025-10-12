@@ -35,6 +35,25 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/blog/css/blog.css">
     
+    <!-- Navigation Styles -->
+    <style>
+        .nav-logo a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo a:hover {
+            text-decoration: none;
+        }
+        .nav-logo a h1 {
+            color: #2563eb;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+    </style>
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
@@ -465,7 +484,24 @@
 
     <!-- Header -->
     <header class="header">
-        <div id="header-component"></div>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="/">
+                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" class="logo">
+                        <h1>Nose Cleaner</h1>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/reviews/">Reviews</a></li>
+                    <li><a href="/guide/">Guide</a></li>
+                    <li><a href="/baby-care/">Baby Care</a></li>
+                    <li><a href="/about/">About</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <!-- Breadcrumb -->
@@ -648,8 +684,6 @@
                 
                 <!-- Sidebar -->
                 <aside class="blog-sidebar">
-                    <!-- Sidebar -->
-<aside class="blog-sidebar">
     <!-- Categories Widget -->
     <div class="sidebar-widget">
         <h3>Categories</h3>
@@ -728,7 +762,47 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div id="footer-component"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-brand">
+                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" class="footer-logo">
+                        Nose Cleaner
+                    </h3>
+                    <p>Your trusted source for nasal health products and expert guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/reviews/">Product Reviews</a></li>
+                        <li><a href="/guide/">Usage Guide</a></li>
+                        <li><a href="/baby-care/">Baby Care</a></li>
+                        <li><a href="/about/">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Blog Categories</h4>
+                    <ul>
+                        <li><a href="/blog/category/baby-care/">Baby Care</a></li>
+                        <li><a href="/blog/category/adult-care/">Adult Care</a></li>
+                        <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
+                        <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Important</h4>
+                    <ul>
+                        <li><a href="/medical-disclaimer/">Medical Disclaimer</a></li>
+                        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Nose Cleaner. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <!-- Back to Top Button -->
@@ -738,7 +812,22 @@
 
     <!-- Scripts -->
     <script src="/js/main.js"></script>
-    <script src="/js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to Top Button logic
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 200) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
