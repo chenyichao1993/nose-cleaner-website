@@ -901,7 +901,79 @@
                     </div>
                 </main>
 
-                <aside class="blog-sidebar"><div id="sidebar-component"></div></aside>
+                <!-- Sidebar -->
+<aside class="blog-sidebar">
+    <!-- Categories Widget -->
+    <div class="sidebar-widget">
+        <h3>Categories</h3>
+        <ul class="category-list">
+            <li><a href="/blog/category/baby-care/">Baby Care <span>(2)</span></a></li>
+            <li><a href="/blog/category/adult-care/">Adult Care <span>(2)</span></a></li>
+            <li><a href="/blog/category/product-reviews/">Product Reviews <span>(2)</span></a></li>
+            <li><a href="/blog/category/safety-tips/">Safety Tips <span>(1)</span></a></li>
+        </ul>
+    </div>
+    
+    <!-- Recent Posts Widget -->
+    <div class="sidebar-widget">
+        <h3>Recent Posts</h3>
+        <ul class="recent-posts">
+            <li>
+                <a href="/blog/best-way-to-clean-your-nose/">
+                    <img src="/images/responsive/best-way-to-clean-your-nose_mobile.webp" alt="Best Way to Clean Your Nose Complete Guide" width="60" height="60">
+                    <div>
+                        <h4>Best Way to Clean Your Nose Complete Guide</h4>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/adult-nasal-irrigation-complete-guide/">
+                    <img src="/images/responsive/adult-nasal-irrigation-complete-guide_mobile.webp" alt="Adult Nasal Irrigation Complete Guide" width="60" height="60">
+                    <div>
+                        <h4>Adult Nasal Irrigation Complete Guide</h4>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/electric-vs-manual-nasal-aspirators/">
+                    <img src="/images/responsive/electric-manual-aspirators_mobile.webp" alt="Electric vs Manual Nasal Aspirators" width="60" height="60">
+                    <div>
+                        <h4>Electric vs Manual Nasal Aspirators</h4>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/baby-nasal-congestion-remedies/">
+                    <img src="/images/responsive/baby-congestion-remedies_mobile.webp" alt="Baby Nasal Congestion Remedies" width="60" height="60">
+                    <div>
+                        <h4>Baby Nasal Congestion Remedies</h4>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/navage-vs-neilmed-detailed-comparison/">
+                    <img src="/images/responsive/comparison-chart_mobile.webp" alt="Naväge vs NeilMed Comparison" width="60" height="60">
+                    <div>
+                        <h4>Naväge vs NeilMed Comparison</h4>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Newsletter Widget -->
+    <div class="sidebar-widget newsletter-widget">
+        <h3>Stay Updated</h3>
+        <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required 
+                   title="Please enter a valid email address"
+                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                   oninput="this.setCustomValidity('')">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+</aside>
             </div>
         </div>
     </div>
