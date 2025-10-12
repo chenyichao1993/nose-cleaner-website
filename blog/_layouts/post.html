@@ -23,7 +23,7 @@ layout: default
     <header class="post-header">
         <div class="container">
             <div class="post-meta">
-                <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+                
                 <span class="post-author">By {{ page.author | default: site.author.name }}</span>
                 <span class="post-read-time">{{ content | reading_time }} min read</span>
             </div>
@@ -130,7 +130,7 @@ layout: default
                         <div class="related-post-content">
                             <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
                             <p>{{ post.description | truncate: 120 }}</p>
-                            <span class="related-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                            
                         </div>
                     </article>
                     {% endfor %}
