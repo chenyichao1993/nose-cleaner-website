@@ -166,23 +166,21 @@
             <div class="nav-container">
                 <div class="nav-logo">
                     <a href="/">
-                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" width="40" height="40">
+                        <img src="/images/responsive/logo_150x150.webp" 
+                             alt="Nose Cleaner Logo" 
+                             class="logo-img"
+                             loading="eager">
                         <h1>Nose Cleaner</h1>
                     </a>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
                     <li><a href="/reviews">Reviews</a></li>
                     <li><a href="/guide">Guide</a></li>
-                    <li><a href="/baby-care">Baby Care</a></li>
+                    <li><a href="/baby">Baby Care</a></li>
                     <li><a href="/about">About</a></li>
                 </ul>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
         </nav>
     </header>
@@ -437,7 +435,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" width="40" height="40">
+                        <img src="/images/responsive/logo_150x150.webp" alt="Nose Cleaner Logo" width="40" height="40">
                         <h3>Nose Cleaner</h3>
                     </div>
                     <p>Your trusted source for nasal health products and expert guidance.</p>
@@ -449,7 +447,7 @@
                         <ul>
                             <li><a href="/reviews">Product Reviews</a></li>
                             <li><a href="/guide">Usage Guide</a></li>
-                            <li><a href="/baby-care">Baby Care</a></li>
+                            <li><a href="/baby">Baby Care</a></li>
                             <li><a href="/about">About Us</a></li>
                         </ul>
                     </div>
@@ -511,10 +509,12 @@
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
         
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
     </script>
 </body>
 </html>
