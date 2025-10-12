@@ -52,6 +52,43 @@
             font-weight: 700;
             margin: 0;
         }
+        
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-list li:not(:last-child)::after {
+            content: '>';
+            margin-left: 0.5rem;
+            color: #64748b;
+        }
+        
+        .breadcrumb-list a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-list li[aria-current="page"] {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
     </style>
     
     <!-- Google Analytics -->
@@ -505,45 +542,42 @@
     </header>
 
     <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <div class="breadcrumb-container">
-            <ol class="breadcrumb-list">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
-                <li class="breadcrumb-item"><a href="/blog/category/adult-care/">Adult Care</a></li>
-                <li class="breadcrumb-item">Best Way to Clean Your Nose</li>
-            </ol>
+    <section class="breadcrumb">
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/blog/category/adult-care">Adult Care</a></li>
+                    <li aria-current="page">Best Way to Clean Your Nose</li>
+                </ol>
+            </nav>
         </div>
-    </nav>
+    </section>
 
     <!-- Main Content -->
-    <main class="main">
-        <div class="container">
-            <div class="article-layout">
-                <article class="article-main">
-                    <header class="article-header">
-                        <h1 class="article-title">What is the Best Way to Clean Your Nose? Complete Guide to Safe Nasal Hygiene</h1>
-                        <div class="article-meta">
-                            <span class="article-category">Adult Care</span>
-                            
-                        </div>
-                    </header>
-                    
-                    <div class="article-content">
-                        <div class="article-image">
-                            <picture>
-                                <source media="(max-width: 768px)" srcset="/images/responsive/best-way-to-clean-your-nose_mobile.webp">
-                                <img src="/images/responsive/best-way-to-clean-your-nose_desktop.webp" 
-                                     alt="Best ways to clean your nose safely and effectively" 
-                                     loading="eager">
-                            </picture>
-                        </div>
+    <div class="container">
+        <div class="blog-layout">
+            <main class="article-main">
+                <div class="article-title-section">
+                    <div class="article-meta">
+                        <span class="article-category">Adult Care</span>
                         
-                        <div class="article-excerpt">
-                            Discover the most effective and safe methods for cleaning your nose. This comprehensive guide covers everything from basic nasal hygiene to advanced cleaning techniques recommended by medical professionals.
-                        </div>
-                        
-                        <div class="article-body">
+                    </div>
+                    <h1>What is the Best Way to Clean Your Nose? Complete Guide to Safe Nasal Hygiene</h1>
+                    <p class="article-excerpt">Discover the most effective and safe methods for cleaning your nose. This comprehensive guide covers everything from basic nasal hygiene to advanced cleaning techniques recommended by medical professionals.</p>
+                </div>
+                
+                <div class="article-image">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="/images/responsive/best-way-to-clean-your-nose_desktop.webp">
+                        <img src="/images/responsive/best-way-to-clean-your-nose_mobile.webp" 
+                             alt="Best ways to clean your nose safely and effectively" 
+                             loading="lazy">
+                    </picture>
+                </div>
+
+                <div class="article-body">
                             <p>Maintaining proper nasal hygiene is essential for overall health and comfort. Whether you're dealing with allergies, colds, or simply want to maintain optimal nasal health, knowing the best way to clean your nose can make a significant difference in your daily life.</p>
                             
                             <h2>Why Nasal Hygiene Matters</h2>
@@ -678,11 +712,10 @@
                             <p>Maintaining proper nasal hygiene is crucial for overall health and comfort. The best way to clean your nose depends on your individual needs, but saline-based methods are generally the safest and most effective. Start with gentle methods like saline sprays and gradually incorporate more thorough cleaning techniques as needed. Always prioritize safety and consult with a healthcare professional if you have concerns about your nasal health.</p>
                             
                             <p>Remember, consistency is key when it comes to nasal hygiene. Establishing a regular routine that works for your lifestyle will help you maintain optimal nasal health year-round.</p>
-                        </div>
-                    </div>
-                </article>
-                
-                <!-- Sidebar -->
+                </div>
+            </main>
+            
+            <!-- Sidebar -->
                 <aside class="blog-sidebar">
     <!-- Categories Widget -->
     <div class="sidebar-widget">
@@ -756,9 +789,8 @@
     </div>
 </aside>
                 </aside>
-            </div>
         </div>
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
