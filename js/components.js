@@ -134,22 +134,6 @@ window.updateArticleData = async function() {
             }
         });
 
-        // 更新Recent Posts
-        const recentPostsContainer = document.querySelector('.recent-posts');
-        if (recentPostsContainer && data.articles) {
-            const recentArticles = data.articles.slice(0, 5); // 取最新5篇
-            recentPostsContainer.innerHTML = recentArticles.map(article => `
-                <li>
-                    <a href="${article.url}">
-                        <img src="/images/responsive/${article.image.mobile}" alt="${article.shortTitle}" width="60" height="60">
-                        <div>
-                            <h4>${article.shortTitle}</h4>
-                            <span>${article.displayDate}</span>
-                        </div>
-                    </a>
-                </li>
-            `).join('');
-        }
     } catch (error) {
         console.error('Failed to update article data:', error);
     }

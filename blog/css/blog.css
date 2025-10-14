@@ -259,37 +259,6 @@
     font-size: 0.75rem;
 }
 
-/* Recent Posts */
-.recent-posts-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.recent-posts-list li {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.recent-posts-list li:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.recent-posts-list a {
-    color: #1e293b;
-    text-decoration: none;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 0.25rem;
-    transition: color 0.3s ease;
-}
-
-.recent-posts-list a:hover {
-    color: #3b82f6;
-}
 
 .recent-posts-list .post-date {
     font-size: 0.875rem;

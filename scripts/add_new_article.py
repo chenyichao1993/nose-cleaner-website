@@ -129,52 +129,6 @@ def update_category_page(new_article):
     else:
         print(f"❌ 未找到插入位置: {category_file}")
 
-def update_sidebar_recent_posts(new_article):
-    """更新侧边栏的Recent Posts"""
-    print("🔄 更新侧边栏Recent Posts...")
-    
-    # 需要更新的文件列表
-    files_to_update = [
-        'blog/index.html',
-        'blog/category/baby-care/index.html',
-        'blog/category/adult-care/index.html',
-        'blog/category/product-reviews/index.html',
-        'blog/category/safety-tips/index.html'
-    ]
-    
-    # 创建新的Recent Post HTML
-    new_recent_post_html = f'''                            <article class="recent-post">
-                                <div class="recent-post-image">
-                                    <img src="/images/responsive/{new_article['slug']}_150x150.webp" 
-                                         alt="{new_article['shortTitle']}" 
-                                         loading="lazy">
-                                </div>
-                                <div class="recent-post-content">
-                                    <h4><a href="{new_article['url']}">{new_article['title']}</a></h4>
-                                </div>
-                            </article>'''
-    
-    for file_path in files_to_update:
-        if not os.path.exists(file_path):
-            continue
-            
-        # 读取文件
-        with open(file_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        # 找到第一个recent-post并替换为新的
-        pattern = r'(<article class="recent-post">.*?</article>)'
-        matches = list(re.finditer(pattern, content, re.DOTALL))
-        
-        if matches:
-            # 替换第一个recent-post
-            content = content[:matches[0].start()] + new_recent_post_html + content[matches[0].end():]
-            
-            # 保存更新后的内容
-            with open(file_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            
-            print(f"✅ 已更新 {file_path} 的Recent Posts")
 
 def update_sidebar_categories():
     """更新侧边栏分类计数"""
@@ -331,10 +285,7 @@ def main():
         # 5. 更新分类页面
         update_category_page(article_data)
         
-        # 6. 更新侧边栏Recent Posts
-        update_sidebar_recent_posts(article_data)
-        
-        # 7. 更新侧边栏分类计数
+        # 6. 更新侧边栏分类计数
         update_sidebar_categories()
         
         print("\n🎉 新文章添加完成！")
