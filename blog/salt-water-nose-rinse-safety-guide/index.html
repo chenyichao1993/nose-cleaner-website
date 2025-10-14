@@ -90,7 +90,414 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/blog.css">
+    
+    <!-- Navigation Styles -->
+    <style>
+        .nav-logo a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .nav-logo a:hover {
+            text-decoration: none;
+        }
+        
+        .nav-logo a h1 {
+            color: #2563eb;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+    
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+        
+        .back-to-top.show {
+            display: flex;
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-list li:not(:last-child)::after {
+            content: '>';
+            margin-left: 0.5rem;
+            color: #64748b;
+        }
+        
+        .breadcrumb-list a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-list li[aria-current="page"] {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+</style>
+    
+    <!-- Blog Post Styles -->
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem 0 2rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .blog-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-description {
+            font-size: 0.95rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.4;
+            text-align: center;
+        }
+        
+        .blog-content {
+            padding: 3rem 0;
+            background: #f8fafc;
+        }
+        
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .article-main {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .article-title-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .article-category {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        
+        .article-title-section h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+            line-height: 1.2;
+        }
+        
+        .article-excerpt {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .article-image {
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .article-content {
+            line-height: 1.7;
+            color: #374151;
+        }
+        
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: #1e293b;
+            line-height: 1.3;
+        }
+        
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: #1e293b;
+            line-height: 1.3;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .article-content strong {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .article-content .lead {
+            font-size: 1.125rem;
+            color: #4b5563;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .sidebar-widget {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .sidebar-widget h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .category-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #64748b;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .category-list a:hover {
+            color: #3b82f6;
+        }
+        
+        .recent-posts {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .recent-posts li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .recent-posts li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .recent-posts a {
+            display: flex;
+            gap: 1rem;
+            color: #1e293b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .recent-posts a:hover {
+            color: #3b82f6;
+        }
+        
+        .recent-posts img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .recent-posts h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+        
+        .recent-posts span {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        
+        .newsletter-widget {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .newsletter-widget h3 {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .newsletter-widget p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .newsletter-form input {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background: white;
+            color: #3b82f6;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 768px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .blog-hero {
+                padding: 2rem 0 1.5rem;
+            }
+            
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 0.85rem;
+                max-width: 95%;
+                white-space: normal;
+            }
+        }
+</style>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="/images/responsive/salt-water-nose-rinse-safety-guide_800x600.webp" as="image">
@@ -139,12 +546,12 @@
             <div class="blog-layout">
                 <!-- Article Main Content -->
                 <article class="article-main">
-                    <header class="article-header">
-                        <h1 class="article-title">Is Rinsing Your Nose with Salt Water Safe? Complete Safety Guide</h1>
+                    <div class="article-title-section">
                         <div class="article-meta">
                             <span class="article-category">Safety Tips</span>
                         </div>
-                    </header>
+                        <h1>Is Rinsing Your Nose with Salt Water Safe? Complete Safety Guide</h1>
+                    </div>
 
                     <div class="article-image">
                         <img src="/images/responsive/salt-water-nose-rinse-safety-guide_800x600.webp" 
@@ -342,57 +749,70 @@
                     <div class="sidebar-widget">
                         <h3>Categories</h3>
                         <ul class="category-list">
-                            <li><a href="/blog/category/baby-care/">Baby Care (3)</a></li>
-                            <li><a href="/blog/category/adult-care/">Adult Care (2)</a></li>
-                            <li><a href="/blog/category/product-reviews/">Product Reviews (1)</a></li>
-                            <li><a href="/blog/category/safety-tips/">Safety Tips (1)</a></li>
+                            <li><a href="/blog/category/baby-care/">Baby Care <span>(2)</span></a></li>
+                            <li><a href="/blog/category/adult-care/">Adult Care <span>(2)</span></a></li>
+                            <li><a href="/blog/category/product-reviews/">Product Reviews <span>(2)</span></a></li>
+                            <li><a href="/blog/category/safety-tips/">Safety Tips <span>(2)</span></a></li>
                         </ul>
                     </div>
 
                     <!-- Recent Posts -->
                     <div class="sidebar-widget">
                         <h3>Recent Posts</h3>
-                        <div class="recent-posts">
-                            <article class="recent-post">
-                                <div class="recent-post-image">
-                                    <img src="/images/responsive/best-way-to-clean-your-nose_150x150.webp" 
-                                         alt="Best way to clean your nose" 
-                                         loading="lazy">
-                                </div>
-                                <div class="recent-post-content">
-                                    <h4><a href="/blog/best-way-to-clean-your-nose/">What is the Best Way to Clean Your Nose? Complete Guide to Safe Nasal Hygiene</a></h4>
-                                </div>
-                            </article>
-                            <article class="recent-post">
-                                <div class="recent-post-image">
-                                    <img src="/images/responsive/adult-nasal-irrigation-complete-guide_150x150.webp" 
-                                         alt="Adult nasal irrigation guide" 
-                                         loading="lazy">
-                                </div>
-                                <div class="recent-post-content">
-                                    <h4><a href="/blog/adult-nasal-irrigation-complete-guide/">Adult Nasal Irrigation: Complete Guide to Safe and Effective Nasal Care</a></h4>
-                                </div>
-                            </article>
-                            <article class="recent-post">
-                                <div class="recent-post-image">
-                                    <img src="/images/responsive/electric-manual-aspirators_150x150.webp" 
-                                         alt="Electric vs manual aspirators" 
-                                         loading="lazy">
-                                </div>
-                                <div class="recent-post-content">
-                                    <h4><a href="/blog/electric-vs-manual-nasal-aspirators/">Electric vs Manual Nasal Aspirators: Which is Better for Your Baby?</a></h4>
-                                </div>
-                            </article>
-                        </div>
+                        <ul class="recent-posts">
+                            <li>
+                                <a href="/blog/salt-water-nose-rinse-safety-guide/">
+                                    <img src="/images/responsive/salt-water-nose-rinse-safety-guide_mobile.webp" alt="Salt Water Nose Rinse Safety Guide" width="60" height="60">
+                                    <div>
+                                        <h4>Is Rinsing Your Nose with Salt Water Safe? Complete Safety Guide</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog/best-way-to-clean-your-nose/">
+                                    <img src="/images/responsive/best-way-to-clean-your-nose_mobile.webp" alt="Best Way to Clean Your Nose Complete Guide" width="60" height="60">
+                                    <div>
+                                        <h4>Best Way to Clean Your Nose Complete Guide</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog/adult-nasal-irrigation-complete-guide/">
+                                    <img src="/images/responsive/adult-nasal-irrigation-complete-guide_mobile.webp" alt="Adult Nasal Irrigation Complete Guide" width="60" height="60">
+                                    <div>
+                                        <h4>Adult Nasal Irrigation Complete Guide</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog/electric-vs-manual-nasal-aspirators/">
+                                    <img src="/images/responsive/electric-manual-aspirators_mobile.webp" alt="Electric vs Manual Nasal Aspirators" width="60" height="60">
+                                    <div>
+                                        <h4>Electric vs Manual Nasal Aspirators</h4>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog/baby-nasal-congestion-remedies/">
+                                    <img src="/images/responsive/baby-congestion-remedies_mobile.webp" alt="Baby Nasal Congestion Remedies" width="60" height="60">
+                                    <div>
+                                        <h4>Baby Nasal Congestion Remedies</h4>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
 
                     <!-- Newsletter -->
                     <div class="sidebar-widget newsletter-widget">
                         <h3>Stay Updated</h3>
-                        <p>Get the latest tips and guides for nasal care delivered to your inbox.</p>
-                        <form class="newsletter-form" action="#" method="post">
-                            <input type="email" placeholder="Enter your email" required>
-                            <button type="submit">Subscribe</button>
+                        <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email address" required 
+                                   title="Please enter a valid email address"
+                                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                                   oninput="this.setCustomValidity('')">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
                         </form>
                     </div>
                 </aside>
@@ -405,27 +825,23 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="/images/responsive/logo_200x200.webp" 
-                             alt="Nose Cleaner Logo" 
-                             class="logo-img">
-                        <h3>Nose Cleaner</h3>
-                    </div>
-                    <p>Your trusted source for nasal care products and expert guidance. We help you breathe easier with safe, effective solutions for the whole family.</p>
+                    <h3 class="footer-brand">
+                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" class="footer-logo">
+                        Nose Cleaner
+                    </h3>
+                    <p>Your trusted source for nasal health products and expert guidance.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/reviews">Reviews</a></li>
-                        <li><a href="/guide">Guide</a></li>
+                        <li><a href="/reviews">Product Reviews</a></li>
+                        <li><a href="/guide">Usage Guide</a></li>
                         <li><a href="/baby">Baby Care</a></li>
-                        <li><a href="/about">About</a></li>
+                        <li><a href="/about">About Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Categories</h4>
+                    <h4>Blog Categories</h4>
                     <ul>
                         <li><a href="/blog/category/baby-care/">Baby Care</a></li>
                         <li><a href="/blog/category/adult-care/">Adult Care</a></li>
@@ -434,50 +850,51 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: info@nosecleaner.online</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                    </div>
+                    <h4>Important</h4>
+                    <ul>
+                        <li><a href="/about#disclaimer">Medical Disclaimer</a></li>
+                        <li><a href="/about#privacy">Privacy Policy</a></li>
+                        <li><a href="/about#contact">Contact Us</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Nose Cleaner. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="/privacy">Privacy Policy</a>
-                    <a href="/terms">Terms of Service</a>
-                </div>
+                <p>&copy; <span id="current-year-footer"></span> Nose Cleaner. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" aria-label="Back to top">
-        ↑
-    </button>
-
-    <!-- JavaScript -->
-    <script src="/js/main.js"></script>
-    <script>
-        // Back to top functionality
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+    <!-- Scripts -->
+    <script src="/js/main.js">
+        // Back to Top Button
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            // Smooth scroll to top when clicked
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
-    </script>
+</script>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="返回顶部">
+        ↑
+    </button>
+    <!-- Component Loader -->
+    <script src="/js/components.js"></script>
 </body>
 </html>
