@@ -97,6 +97,20 @@
         "mobile": "baby-nasal-care-guide_mobile.webp"
       },
       "url": "/blog/complete-guide-baby-nasal-care/"
+    },
+    {
+      "slug": "salt-water-nose-rinse-safety-guide",
+      "title": "Is Rinsing Your Nose with Salt Water Safe? Complete Safety Guide",
+      "shortTitle": "Salt Water Nose Rinse Safety Guide",
+      "category": "Safety Tips",
+      "date": "2025-01-27",
+      "displayDate": "January 27, 2025",
+      "excerpt": "Learn about the safety of nasal saline rinses. Complete guide covering proper techniques, safety precautions, and medical recommendations for salt water nose irrigation.",
+      "image": {
+        "desktop": "salt-water-nose-rinse-safety-guide_desktop.webp",
+        "mobile": "salt-water-nose-rinse-safety-guide_mobile.webp"
+      },
+      "url": "/blog/salt-water-nose-rinse-safety-guide/"
     }
   ],
   "categories": {
@@ -117,7 +131,7 @@
     },
     "Safety Tips": {
       "slug": "safety-tips",
-      "count": 1,
+      "count": 2,
       "url": "/blog/category/safety-tips/"
     }
   }
