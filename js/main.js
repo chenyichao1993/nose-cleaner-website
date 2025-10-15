@@ -89,6 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cost calculator functionality
     initializeCostCalculator();
+    
+    // Back to Top Button functionality
+    initializeBackToTop();
 });
 
 // Notification system
@@ -587,7 +590,32 @@ function getProductPriceFromContext(link) {
     return 0;
 }
 
-// Initialize affiliate tracking when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize affiliate tracking when DOM is loaded                                             
+document.addEventListener('DOMContentLoaded', function() {                                      
     initializeAffiliateTracking();
 });
+
+// Back to Top Button functionality
+function initializeBackToTop() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    if (!backToTopButton) return;
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+    
+    // Smooth scroll to top when clicked
+    backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
