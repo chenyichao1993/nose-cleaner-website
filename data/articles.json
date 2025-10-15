@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "slug": "nasal-irrigation-frequency-guide",
+      "title": "How Often Should You Flush Your Nostrils? Frequency Guide & Side Effects",
+      "shortTitle": "Nasal Irrigation Frequency Guide",
+      "category": "Adult Care",
+      "date": "2025-01-28",
+      "displayDate": "January 28, 2025",
+      "excerpt": "Learn the optimal frequency for nasal irrigation based on your condition. Complete guide covering recommended usage, side effects of overuse, and personalized recommendations.",
+      "image": {
+        "desktop": "nasal-irrigation-frequency-guide_desktop.webp",
+        "mobile": "nasal-irrigation-frequency-guide_mobile.webp"
+      },
+      "url": "/blog/nasal-irrigation-frequency-guide/"
+    },
+    {
       "slug": "best-way-to-clean-your-nose",
       "title": "What is the Best Way to Clean Your Nose? Complete Guide to Safe Nasal Hygiene",
       "shortTitle": "Best Way to Clean Your Nose Complete Guide",
@@ -121,7 +135,7 @@
     },
     "Adult Care": {
       "slug": "adult-care", 
-      "count": 2,
+      "count": 3,
       "url": "/blog/category/adult-care/"
     },
     "Product Reviews": {
