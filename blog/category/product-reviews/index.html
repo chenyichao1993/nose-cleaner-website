@@ -624,38 +624,13 @@
             <!-- Main Content -->
             <main class="blog-main">
                 <!-- Featured Post -->
-                <article class="featured-post">
-                    <div class="featured-post-image">
-                        <picture>
-                            <source media="(min-width: 768px)" srcset="/images/responsive/comparison-chart_desktop.webp">
-                            <img src="/images/responsive/comparison-chart_mobile.webp" 
-                                 alt="Naväge vs NeilMed Comparison" 
-                                 loading="lazy"
-                                 width="400" 
-                                 height="300">
-                        </picture>
-                    </div>
-                    <div class="featured-post-content">
-                        <div class="post-meta">
-                            <span class="post-category">Product Reviews</span>
-                            
-                        </div>
-                        <h2><a href="/blog/navage-vs-neilmed-detailed-comparison/">Naväge vs NeilMed: Detailed Comparison of Top Nasal Irrigation Systems</a></h2>
-                        <p>An in-depth comparison of the two most popular nasal irrigation systems, including features, effectiveness, and value for money.</p>
-                        <a href="/blog/navage-vs-neilmed-detailed-comparison/" class="read-more">Read More →</a>
-                    </div>
-                </article>
-
-                <!-- Second Featured Post -->
-                <article class="featured-post">
+                                <article class="featured-post">
                     <div class="featured-post-image">
                         <picture>
                             <source media="(min-width: 768px)" srcset="/images/responsive/electric-manual-aspirators_desktop.webp">
                             <img src="/images/responsive/electric-manual-aspirators_mobile.webp" 
-                                 alt="Electric vs Manual Aspirators" 
-                                 loading="lazy"
-                                 width="400" 
-                                 height="300">
+                                 alt="Electric vs Manual Nasal Aspirators" 
+                                 loading="lazy">
                         </picture>
                     </div>
                     <div class="featured-post-content">
@@ -669,6 +644,29 @@
                     </div>
                 </article>
 
+                <!-- Additional Posts -->
+                <div class="blog-posts">
+                    <article class="featured-post">
+                        <div class="featured-post-image">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/images/responsive/comparison-chart_desktop.webp">
+                                <img src="/images/responsive/comparison-chart_mobile.webp" 
+                                     alt="Naväge vs NeilMed Comparison" 
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="featured-post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Product Reviews</span>
+                                
+                            </div>
+                            <h2><a href="/blog/navage-vs-neilmed-detailed-comparison/">Naväge vs NeilMed: Detailed Comparison of Top Nasal Irrigation Systems</a></h2>
+                            <p>An in-depth comparison of the two most popular nasal irrigation systems, including features, effectiveness, and value for money.</p>
+                            <a href="/blog/navage-vs-neilmed-detailed-comparison/" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                </div>
+
             </main>
 
             <!-- Sidebar -->
@@ -676,13 +674,11 @@
         <!-- Categories Widget -->
     <div class="sidebar-widget">
         <h3>Categories</h3>
-        <ul class="category-list">
-            <li><a href="/blog/category/baby-care/">Baby Care <span>(2)</span></a></li>
-            <li><a href="/blog/category/adult-care/">Adult Care <span>(3)</span></a></li>
-            <li><a href="/blog/category/product-reviews/">Product Reviews <span>(2)</span></a></li>
-            <li><a href="/blog/category/safety-tips/">Safety Tips <span>(2)</span></a></li>
+        <ul class="category-list" id="categories-list">
+            <!-- 分类数据将通过JavaScript动态加载 -->
         </ul>
     </div>
+    <script src="/js/categories.js"></script>
     
     <!-- Newsletter Widget -->
     <div class="sidebar-widget newsletter-widget">

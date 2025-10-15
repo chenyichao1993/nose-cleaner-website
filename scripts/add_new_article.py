@@ -282,21 +282,8 @@ def main():
         # 4. 更新博客首页
         update_blog_homepage(article_data)
         
-        # 5. 更新分类页面
+        # 5. 更新分类页面（添加新文章）
         update_category_page(article_data)
-        
-        # 6. 更新侧边栏分类计数
-        update_sidebar_categories()
-        
-        # 7. 更新所有页面的动态侧边栏
-        print("🔄 更新动态侧边栏...")
-        import subprocess
-        result = subprocess.run(['python', 'scripts/create_dynamic_sidebar.py'], 
-                              capture_output=True, text=True)
-        if result.returncode == 0:
-            print("✅ 动态侧边栏更新完成")
-        else:
-            print(f"⚠️ 侧边栏更新警告: {result.stderr}")
         
         print("\n🎉 新文章添加完成！")
         print(f"📄 文章页面: {article_data['url']}")
