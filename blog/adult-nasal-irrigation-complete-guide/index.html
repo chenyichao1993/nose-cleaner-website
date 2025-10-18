@@ -61,6 +61,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
     
     <!-- Navigation Styles -->
     <style>
@@ -759,29 +760,17 @@
                 </div>
             </main>
 
-            <!-- Sidebar -->
-<aside class="blog-sidebar">
-        <!-- Categories Widget -->
-    <div class="sidebar-widget">
-        <h3>Categories</h3>
-        <ul class="category-list" id="categories-list">
-            <!-- 分类数据将通过JavaScript动态加载 -->
-        </ul>
-    </div>
-    <script src="/js/categories.js"></script>
-    
-    <!-- Newsletter Widget -->
-    <div class="sidebar-widget newsletter-widget">
-        <h3>Stay Updated</h3>
-        <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email address" required 
-                   title="Please enter a valid email address"
-                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
-                   oninput="this.setCustomValidity('')">
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-    </div>
+            <!-- Sidebar Component -->
+            <div id="sidebar-container"></div>
+            <script>
+                // 动态加载侧边栏组件
+                fetch('/components/sidebar.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('sidebar-container').innerHTML = html;
+                    })
+                    .catch(error => console.error('Error loading sidebar:', error));
+            </script>
         </div>
     </div>
 

@@ -208,6 +208,31 @@ def create_article_page(article_data):
     for old, new in replacements.items():
         content = content.replace(old, new)
     
+    # 确保使用统一的侧边栏组件
+    if 'sidebar-container' not in content:
+        # 替换侧边栏为统一组件
+        pattern = r'<aside class="blog-sidebar">.*?</aside>'
+        replacement = '''<!-- Sidebar Component -->
+            <div id="sidebar-container"></div>
+            <script>
+                // 动态加载侧边栏组件
+                fetch('/components/sidebar.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('sidebar-container').innerHTML = html;
+                    })
+                    .catch(error => console.error('Error loading sidebar:', error));
+            </script>'''
+        
+        content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+        
+        # 确保有CSS链接
+        if 'sidebar.css' not in content:
+            css_link = '<link rel="stylesheet" href="/css/sidebar.css">'
+            head_end = content.find('</head>')
+            if head_end != -1:
+                content = content[:head_end] + f'    {css_link}\n' + content[head_end:]
+    
     # 保存更新后的内容
     with open(f"{article_dir}/index.html", 'w', encoding='utf-8') as f:
         f.write(content)

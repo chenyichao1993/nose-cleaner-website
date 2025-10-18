@@ -92,49 +92,17 @@ layout: default
                 </main>
 
                 <!-- Sidebar -->
-                <aside class="blog-sidebar">
-                    <!-- Categories -->
-                    <div class="sidebar-widget">
-                        <h3>Categories</h3>
-                        <ul class="category-list">
-                            {% for category in site.categories %}
-                            <li>
-                                <a href="/blog/category/{{ category[0] | downcase | replace: ' ', '-' }}/">
-                                    {{ category[0] }}
-                                    <span class="category-count">({{ category[1].size }})</span>
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-
-
-                    <!-- Popular Tags -->
-                    <div class="sidebar-widget">
-                        <h3>Popular Tags</h3>
-                        <div class="tag-cloud">
-                            {% for tag in site.tags limit: 10 %}
-                            <a href="/blog/tag/{{ tag[0] | downcase | replace: ' ', '-' }}/" class="tag-link">
-                                {{ tag[0] }}
-                            </a>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <!-- Newsletter Signup -->
-                    <div class="sidebar-widget newsletter-widget">
-                        <h3>Stay Updated</h3>
-                        <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
-                        <form class="newsletter-form" id="blog-newsletter-form" novalidate>
-                            <input type="email" placeholder="Enter your email" required 
-                                   title="Please enter a valid email address"
-                                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
-                                   oninput="this.setCustomValidity('')">
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                        </form>
-                        <p class="newsletter-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
-                    </div>
-                </aside>
+                <!-- Sidebar Component -->
+    <div id="sidebar-container"></div>
+    <script>
+        // 动态加载侧边栏组件
+        fetch('/components/sidebar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('sidebar-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading sidebar:', error));
+    </script>
             </div>
         </div>
     </div>
