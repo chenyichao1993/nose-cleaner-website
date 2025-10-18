@@ -922,16 +922,7 @@
                 </main>
 
                 <!-- Sidebar Component -->
-                <div id="sidebar-container"></div>
-                <script>
-                    // 动态加载侧边栏组件
-                    fetch('/components/sidebar.html')
-                        .then(response => response.text())
-                        .then(html => {
-                            document.getElementById('sidebar-container').innerHTML = html;
-                        })
-                        .catch(error => console.error('Error loading sidebar:', error));
-                </script>
+            <div id="sidebar-container"></div>
             </div>
         </div>
     </div>
