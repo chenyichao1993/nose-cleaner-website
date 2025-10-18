@@ -26,6 +26,9 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
     
     <!-- Navigation Styles -->
     <style>
@@ -119,43 +122,8 @@
 </head>
 <body style="background-color: #f5f5f5;">
     <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="/">
-                        <img src="/images/responsive/logo_100x100.webp" alt="Nose Cleaner Logo" width="40" height="40">
-                        <h1>Nose Cleaner</h1>
-                    </a>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/blog/" class="nav-link active">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/reviews.html" class="nav-link">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/guide.html" class="nav-link">Guide</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/baby.html" class="nav-link">Baby Care</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/about.html" class="nav-link">About</a>
-                    </li>
-                </ul>
-                <div class="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Header Component -->
+    <div id="header-container"></div>
 
     <!-- Blog Hero -->
     <section class="blog-hero">
@@ -700,51 +668,11 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-brand">
-                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" class="footer-logo">
-                        Nose Cleaner
-                    </h3>
-                    <p>Your trusted source for nasal health products and expert guidance.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="/reviews">Product Reviews</a></li>
-                        <li><a href="/guide">Usage Guide</a></li>
-                        <li><a href="/baby">Baby Care</a></li>
-                        <li><a href="/about">About Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Blog Categories</h4>
-                    <ul>
-                        <li><a href="/blog/category/baby-care/">Baby Care</a></li>
-                        <li><a href="/blog/category/adult-care/">Adult Care</a></li>
-                        <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
-                        <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Important</h4>
-                    <ul>
-                        <li><a href="/about#disclaimer">Medical Disclaimer</a></li>
-                        <li><a href="/about#privacy">Privacy Policy</a></li>
-                        <li><a href="/about#contact">Contact Us</a></li>
-                        <li><a href="/blog/">Blog</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year-footer"></span> Nose Cleaner. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
 
     <!-- Scripts -->
+    <script src="/js/components.js"></script>
     <script src="/js/main.js">
         // Back to Top Button
         document.addEventListener('DOMContentLoaded', function() {

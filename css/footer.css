@@ -1,0 +1,125 @@
+/* Footer Component Styles */
+
+.footer {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+.footer-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.footer-section p {
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-section ul li a:hover {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #94a3b8;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 1rem;
+        margin-top: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    
+    .footer-section h3,
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+    
+    .footer-section ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 0 1rem;
+    }
+    
+    .footer-content {
+        gap: 1rem;
+    }
+    
+    .footer-brand {
+        font-size: 1.1rem;
+    }
+    
+    .footer-logo {
+        width: 25px;
+        height: 25px;
+    }
+}

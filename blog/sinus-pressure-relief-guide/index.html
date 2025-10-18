@@ -61,6 +61,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
     
     <!-- Navigation Styles -->
     <style>
@@ -471,29 +474,8 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="/">
-                        <img src="/images/responsive/logo_150x150.webp" 
-                             alt="Nose Cleaner Logo" 
-                             class="logo-img"
-                             loading="eager">
-                        <h1>Nose Cleaner</h1>
-                    </a>
-                </div>
-                <div class="nav-menu" id="nav-menu">
-                    <a href="/" class="nav-link">Home</a>
-                    <a href="/blog/" class="nav-link active">Blog</a>
-                    <a href="/reviews" class="nav-link">Reviews</a>
-                    <a href="/guide" class="nav-link">Guide</a>
-                    <a href="/baby" class="nav-link">Baby Care</a>
-                    <a href="/about" class="nav-link">About</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Header Component -->
+    <div id="header-container"></div>
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
@@ -722,54 +704,12 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-brand">
-                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" class="footer-logo">
-                        Nose Cleaner
-                    </h3>
-                    <p>Your trusted source for nasal health products and expert guidance.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="/reviews">Product Reviews</a></li>
-                        <li><a href="/guide">Usage Guide</a></li>
-                        <li><a href="/baby">Baby Care</a></li>
-                        <li><a href="/about">About Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Blog Categories</h4>
-                    <ul>
-                        <li><a href="/blog/category/baby-care/">Baby Care</a></li>
-                        <li><a href="/blog/category/adult-care/">Adult Care</a></li>
-                        <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
-                        <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Important</h4>
-                    <ul>
-                        <li><a href="/privacy">Privacy Policy</a></li>
-                        <li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                        <li><a href="/sitemap">Sitemap</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year-footer"></span> Nose Cleaner. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
 
     <!-- Scripts -->
-    <script src="/js/main.js"></script>
     <script src="/js/components.js"></script>
-    <script src="/js/categories.js"></script>
+    <script src="/js/main.js"></script>
 
     <!-- Back to Top Button -->
     <button id="back-to-top" class="back-to-top" aria-label="返回顶部">

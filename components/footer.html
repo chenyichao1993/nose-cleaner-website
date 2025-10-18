@@ -1,4 +1,4 @@
-<!-- Footer -->
+<!-- Footer Component -->
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
@@ -20,25 +20,49 @@
             </div>
             <div class="footer-section">
                 <h4>Blog Categories</h4>
-                <ul>
-                    <li><a href="/blog/category/baby-care/">Baby Care</a></li>
-                    <li><a href="/blog/category/adult-care/">Adult Care</a></li>
-                    <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
-                    <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
+                <ul id="footer-categories">
+                    <!-- 分类数据将通过JavaScript动态加载 -->
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Important</h4>
                 <ul>
-                    <li><a href="/about#disclaimer">Medical Disclaimer</a></li>
-                    <li><a href="/about#privacy">Privacy Policy</a></li>
-                    <li><a href="/about#contact">Contact Us</a></li>
-                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/medical-disclaimer">Medical Disclaimer</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/blog">Blog</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year-footer"></span> Nose Cleaner. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> Nose Cleaner. All rights reserved.</p>
         </div>
     </div>
 </footer>
+
+<script>
+// 页脚功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 设置当前年份
+    const currentYear = document.getElementById('current-year');
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
+    
+    // 动态加载分类数据
+    const footerCategories = document.getElementById('footer-categories');
+    if (footerCategories) {
+        fetch('/data/articles.json')
+            .then(response => response.json())
+            .then(data => {
+                let categoriesHtml = '';
+                for (const categoryName in data.categories) {
+                    const category = data.categories[categoryName];
+                    categoriesHtml += `<li><a href="${category.url}">${categoryName}</a></li>`;
+                }
+                footerCategories.innerHTML = categoriesHtml;
+            })
+            .catch(error => console.error('Error loading footer categories:', error));
+    }
+});
+</script>
