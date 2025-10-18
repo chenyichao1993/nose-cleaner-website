@@ -26,11 +26,11 @@ def optimize_images():
     for png_file in png_files:
         filename = os.path.basename(png_file).replace('.png', '')
         
-        # 检查是否已经处理过（检查WebP文件是否存在）
-        webp_path = f'images/webp/{filename}.webp'
-        mobile_webp = f'images/responsive/{filename}_mobile.webp'
+        # 检查是否已经处理过（检查响应式图片是否存在）
+        desktop_png = f'images/responsive/{filename}_desktop.png'
+        mobile_png = f'images/responsive/{filename}_mobile.png'
         
-        if os.path.exists(webp_path) and os.path.exists(mobile_webp):
+        if os.path.exists(desktop_png) and os.path.exists(mobile_png):
             print(f"⏭️  跳过已处理: {filename}")
             skipped_count += 1
             continue
@@ -41,6 +41,7 @@ def optimize_images():
         # 打开原图
         with Image.open(png_file) as img:
             # 1. 转换为WebP格式（高质量）
+            webp_path = f'images/webp/{filename}.webp'
             img.save(webp_path, 'WebP', quality=85, optimize=True)
             
             # 2. 生成响应式尺寸
