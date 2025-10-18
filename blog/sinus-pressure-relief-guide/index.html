@@ -134,63 +134,55 @@
         
         .breadcrumb-list {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
             list-style: none;
+            gap: 0.5rem;
+            align-items: center;
             margin: 0;
             padding: 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .breadcrumb-list li {
-            display: flex;
-            align-items: center;
         }
         
         .breadcrumb-list li:not(:last-child)::after {
-            content: "›";
+            content: '>';
             margin-left: 0.5rem;
             color: #64748b;
         }
         
         .breadcrumb-list a {
-            color: #3b82f6;
+            color: #2563eb;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
         }
         
         .breadcrumb-list a:hover {
             text-decoration: underline;
         }
         
-        .breadcrumb-list .current {
+        .breadcrumb-list li[aria-current="page"] {
             color: #64748b;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
         }
     </style>
 
     <!-- Blog Post Styles -->
     <style>
-        .blog-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
+        /* Blog layout */
+        .blog-layout {
             display: grid;
             grid-template-columns: 1fr 300px;
             gap: 3rem;
+            align-items: start;
         }
         
         .article-main {
             background: white;
             border-radius: 12px;
+            padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
         }
         
         .article-title-section {
-            padding: 2rem 2rem 1rem 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid #e2e8f0;
         }
         
@@ -216,7 +208,6 @@
         }
         
         .post-content {
-            padding: 2rem;
             line-height: 1.8;
         }
         
@@ -331,29 +322,29 @@
             background: white;
             border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
         .sidebar-widget h3 {
             font-size: 1.25rem;
             font-weight: 600;
+            margin-bottom: 1rem;
             color: #1e293b;
-            margin: 0 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #3b82f6;
         }
         
-        .categories-list {
+        .category-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
         
-        .categories-list li {
+        .category-list li {
             margin-bottom: 0.5rem;
         }
         
-        .categories-list a {
+        .category-list a {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -364,11 +355,11 @@
             transition: color 0.2s ease;
         }
         
-        .categories-list a:hover {
+        .category-list a:hover {
             color: #3b82f6;
         }
         
-        .categories-list span {
+        .category-list span {
             background: #e2e8f0;
             color: #64748b;
             padding: 0.25rem 0.5rem;
@@ -376,19 +367,52 @@
             font-size: 0.8rem;
         }
         
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .newsletter-form input {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .btn {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+        
         @media (max-width: 768px) {
-            .blog-content {
+            .blog-layout {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-                padding: 1rem;
             }
             
             .article-title-section h1 {
                 font-size: 2rem;
-            }
-            
-            .post-content {
-                padding: 1.5rem;
             }
             
             .post-content h2 {
@@ -447,44 +471,47 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="/">
-                    <img src="/images/responsive/logo_150x150.webp" alt="Nose Cleaner Logo" width="40" height="40">
-                    <h1>Nose Cleaner</h1>
-                </a>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="/">
+                        <img src="/images/responsive/logo_150x150.webp" 
+                             alt="Nose Cleaner Logo" 
+                             class="logo-img"
+                             loading="eager">
+                        <h1>Nose Cleaner</h1>
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/blog/" class="nav-link active">Blog</a>
+                    <a href="/reviews" class="nav-link">Reviews</a>
+                    <a href="/guide" class="nav-link">Guide</a>
+                    <a href="/baby" class="nav-link">Baby Care</a>
+                    <a href="/about" class="nav-link">About</a>
+                </div>
             </div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+        </nav>
     </header>
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/blog/">Blog</a></li>
-                <li><a href="/blog/category/adult-care/">Adult Care</a></li>
-                <li class="current">Fastest Ways to Clear Sinus Pressure</li>
-            </ol>
-        </nav>
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/blog/category/adult-care/">Adult Care</a></li>
+                    <li aria-current="page">Fastest Ways to Clear Sinus Pressure</li>
+                </ol>
+            </nav>
+        </div>
     </section>
 
     <!-- Main Content -->
-    <div class="blog-content">
-        <main class="article-main">
+    <div class="container">
+        <div class="blog-layout">
+            <main class="article-main">
             <div class="article-title-section">
                 <h1>Fastest Ways to Clear Sinus Pressure: Complete Relief Guide</h1>
                 <p class="article-excerpt">Discover the most effective methods to clear sinus pressure quickly and safely. From nasal irrigation to steam therapy, learn proven techniques for immediate sinus relief and long-term prevention.</p>
@@ -676,45 +703,75 @@
 
                 <p>Remember that individual responses to treatments vary, and what works best for one person may not be as effective for another. Experiment with different methods to find your optimal combination, and don't hesitate to consult a healthcare provider if symptoms persist or worsen.</p>
             </div>
-        </main>
+            </main>
 
-        <!-- Sidebar -->
-        <aside class="blog-sidebar">
-            <div class="sidebar-widget">
-                <h3>Categories</h3>
-                <ul class="categories-list" id="categories-list">
-                    <!-- Categories will be loaded dynamically -->
-                </ul>
-            </div>
-        </aside>
+            <!-- Sidebar -->
+            <aside class="blog-sidebar">
+                <!-- Categories Widget -->
+                <div class="sidebar-widget">
+                    <h3>Categories</h3>
+                    <ul class="category-list" id="categories-list">
+                        <!-- 分类数据将通过JavaScript动态加载 -->
+                    </ul>
+                </div>
+                <script src="/js/categories.js"></script>
+                
+                <!-- Newsletter Widget -->
+                <div class="sidebar-widget newsletter-widget">
+                    <h3>Stay Updated</h3>
+                    <p>Get the latest nasal health tips and product reviews delivered to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required 
+                               title="Please enter a valid email address"
+                               oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                               oninput="this.setCustomValidity('')">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Nose Cleaner</h3>
-                <p>Your trusted source for nasal health and sinus relief information.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-brand">
+                        <img src="/images/webp/logo.webp" alt="Nose Cleaner Logo" class="footer-logo">
+                        Nose Cleaner
+                    </h3>
+                    <p>Your trusted source for nasal health products and expert guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/reviews">Product Reviews</a></li>
+                        <li><a href="/guide">Usage Guide</a></li>
+                        <li><a href="/baby">Baby Care</a></li>
+                        <li><a href="/about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Blog Categories</h4>
+                    <ul>
+                        <li><a href="/blog/category/baby-care/">Baby Care</a></li>
+                        <li><a href="/blog/category/adult-care/">Adult Care</a></li>
+                        <li><a href="/blog/category/product-reviews/">Product Reviews</a></li>
+                        <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Important</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/sitemap">Sitemap</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="/blog/category/adult-care/">Adult Care</a></li>
-                    <li><a href="/blog/category/safety-tips/">Safety Tips</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-container">
+            <div class="footer-bottom">
                 <p>&copy; <span id="current-year-footer"></span> Nose Cleaner. All rights reserved.</p>
             </div>
         </div>
