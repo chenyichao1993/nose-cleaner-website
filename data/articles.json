@@ -1,6 +1,20 @@
 {
   "articles": [
     {
+      "slug": "sinus-pressure-relief-guide",
+      "title": "Fastest Ways to Clear Sinus Pressure: Complete Relief Guide",
+      "shortTitle": "Sinus Pressure Relief Guide",
+      "category": "Adult Care",
+      "date": "2024-12-19",
+      "displayDate": "December 19, 2024",
+      "excerpt": "Discover the fastest ways to clear sinus pressure with our complete relief guide. Learn effective methods including nasal irrigation, steam therapy, and massage techniques for immediate sinus relief.",
+      "image": {
+        "desktop": "sinus-pressure-relief-guide_desktop.webp",
+        "mobile": "sinus-pressure-relief-guide_mobile.webp"
+      },
+      "url": "/blog/sinus-pressure-relief-guide/"
+    },
+    {
       "slug": "nasal-irrigation-frequency-guide",
       "title": "How Often Should You Flush Your Nostrils? Frequency Guide & Side Effects",
       "shortTitle": "Nasal Irrigation Frequency Guide",
@@ -135,7 +149,7 @@
     },
     "Adult Care": {
       "slug": "adult-care", 
-      "count": 3,
+      "count": 4,
       "url": "/blog/category/adult-care/"
     },
     "Product Reviews": {
